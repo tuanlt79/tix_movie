@@ -9,6 +9,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
+    "slick-carousel": "^1.8.1",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
@@ -40,6 +41,7 @@
     "node-sass": "^5.0.0",
     "react-redux": "^7.2.3",
     "react-router-dom": "^5.2.0",
+    "react-slick": "^0.28.1",
     "redux-thunk": "^2.3.0",
     "sass": "^1.32.11",
     "sass-loader": "^11.0.1"

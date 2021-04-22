@@ -1,0 +1,5 @@
+.silder {
+  h1 {
+    @include Text($cRed, $h5, $semiBold);
+  }
+}
