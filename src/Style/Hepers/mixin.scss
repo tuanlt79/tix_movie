@@ -1,0 +1,19 @@
+@mixin Text($c, $fs, $fw) {
+  color: $c;
+  font-size: $fs;
+  font-weight: $fw;
+}
+@mixin Button($bg, $border, $radius, $padding, $width, $ml) {
+  background-color: $bg;
+  border: $border;
+  border-radius: $radius;
+  padding: $padding;
+  width: $width;
+  margin-left: $ml;
+}
+@mixin BGI($bgp, $bgs, $width, $height) {
+  background-position: $bgp;
+  background-size: $bgs;
+  width: $width;
+  height: $height;
+}
