@@ -3,32 +3,47 @@
     @include Text($cRed, $h5, $semiBold);
   }
   .card {
+    border: none;
     position: relative;
-
+    img {
+      border-radius: 4px;
+    }
     .iconHover {
       position: absolute;
       transform: translate(175%, 300%);
       opacity: 0;
-      transition: all 0.2s;
+      transition: all 0.3s;
+      width: 60px;
+      height: 60px;
+      border: 2px solid white;
+      border-radius: 50%;
+      line-height: 65px;
+      .svg-inline--fa {
+        margin: 15px 20px;
+      }
     }
     .card-body {
       .card__info {
         position: relative;
       }
+
       .showHover {
         position: absolute;
-        transform: translate(10%, -130%);
+        transform: translate(3%, -110%);
         opacity: 0;
-        button {
-          padding: 10px 60px;
+        transition: all 0.3s;
+        a {
+          padding: 10px 70px;
         }
       }
-      &:hover .showHover {
-        opacity: 1;
-      }
     }
-
+    &:hover .card__info {
+      opacity: 0;
+    }
     &:hover .iconHover {
+      opacity: 1;
+    }
+    &:hover .showHover {
       opacity: 1;
     }
   }
