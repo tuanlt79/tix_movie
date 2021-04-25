@@ -4638,7 +4638,7 @@ eslint-plugin-jsx-a11y@^6.3.1:
 
 eslint-plugin-react-hooks@^4.2.0:
   version "4.2.0"
-  resolved "https://registry.npmjs.org/eslint-plugin-react-hooks/-/eslint-plugin-react-hooks-4.2.0.tgz"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-react-hooks/-/eslint-plugin-react-hooks-4.2.0.tgz#8c229c268d468956334c943bb45fc860280f5556"
   integrity sha512-623WEiZJqxR7VdxFCKLI6d6LLpwJkGPYKODnkH3D7WpOG5KM8yWueBd8TLsNAetEJNF5iJmolaAKO3F8yzyVBQ==
 
 eslint-plugin-react@^7.21.5:
@@ -5647,6 +5647,13 @@ hoist-non-react-statics@^3.1.0, hoist-non-react-statics@^3.3.0, hoist-non-react-
   integrity sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw==
   dependencies:
     react-is "^16.7.0"
+
+hook@^0.0.5:
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/hook/-/hook-0.0.5.tgz#bca87347a964efada87a96557372be24d46fa59a"
+  integrity sha1-vKhzR6lk762oepZVc3K+JNRvpZo=
+  dependencies:
+    mochiscript ">=0.4.3"
 
 hoopy@^0.1.4:
   version "0.1.4"
@@ -7567,6 +7574,13 @@ mkdirp@^1.0.3, mkdirp@^1.0.4:
   version "1.0.4"
   resolved "https://registry.npmjs.org/mkdirp/-/mkdirp-1.0.4.tgz"
   integrity sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==
+
+mochiscript@>=0.4.3:
+  version "0.6.16"
+  resolved "https://registry.yarnpkg.com/mochiscript/-/mochiscript-0.6.16.tgz#2585d67bd4578ad2544053ecbb2791654bedbc34"
+  integrity sha1-JYXWe9RXitJUQFPsuyeRZUvtvDQ=
+  dependencies:
+    watch "0.5.1"
 
 move-concurrently@^1.0.1:
   version "1.0.1"
@@ -11555,6 +11569,11 @@ walker@^1.0.7, walker@~1.0.5:
   integrity sha1-L3+bj9ENZ3JisYqITijRlhjgKPs=
   dependencies:
     makeerror "1.0.x"
+
+watch@0.5.1:
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/watch/-/watch-0.5.1.tgz#50ea3a056358c98073e0bca59956de4afd20b213"
+  integrity sha1-UOo6BWNYyYBz4LylmVbeSv0gshM=
 
 watchpack-chokidar2@^2.0.1:
   version "2.0.1"
