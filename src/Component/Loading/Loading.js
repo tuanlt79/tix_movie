@@ -1,9 +1,11 @@
 import React from "react";
-
+import { useDispatch, useSelector } from "react-redux";
+import webLogo from "../../Assets/img/web-logo.png";
 export default function Loading() {
+  const dispatch = useDispatch();
+  const isloading = useSelector((state) => state.LoadingReducer.loading);
   let renderLoading = () => {
-    console.log(this.props.isloading);
-    if (this.props.isloading) {
+    if (isloading) {
       return (
         <div
           style={{
@@ -23,14 +25,15 @@ export default function Loading() {
               flexDirection: "row",
               justifyContent: "center",
               alignItems: "center",
-              backgroundColor: "rgba(0,0,0,.5)",
+              backgroundColor: "#fff",
             }}
           >
-            <span className="display-4 text-white">Loading...</span>
+            <img src={webLogo} width="150px" />
           </div>
         </div>
       );
       return "";
     }
   };
+  return <div>{renderLoading()}</div>;
 }
