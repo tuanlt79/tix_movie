@@ -62,16 +62,18 @@
     }
     .card-body {
       height: 97px;
+      padding: 0;
       .card__info {
         position: relative;
       }
 
       .showHover {
         position: absolute;
-        transform: translate(3%, -130%);
+        transform: translate(0%, -130%);
         opacity: 0;
         transition: all 0.3s;
         bottom: -20px;
+        width: 100%;
 
         a {
           padding: 10px 70px;

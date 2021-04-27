@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import LightLity from "lity";
 import { faPlay, faStar } from "@fortawesome/free-solid-svg-icons";
 import { layDanhSachPhimAction } from "../../Action/PhimAction";
 
@@ -35,7 +36,7 @@ export default function DanhSachPhim() {
               </p>
             </div>
 
-            <a href="#" className="iconHover">
+            <a data-lity href={item.trailer} className="iconHover">
               <FontAwesomeIcon icon={faPlay} style={{ fontSize: "30px" }} />
             </a>
 
