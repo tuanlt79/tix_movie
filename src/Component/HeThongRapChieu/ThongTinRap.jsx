@@ -11,10 +11,11 @@ export default function ThongTinRap() {
   //   console.log({ cumRap });
   const thongTinCumRap = () => {
     return cumRap?.map((danhSachRap, index) => {
+      let classActive = index === 0 ? "active" : "";
       return (
         <a
           key={index}
-          className="nav-link "
+          className={`nav-link ${classActive}`}
           id="v-pills-home-tab"
           data-toggle="pill"
           href={`#${danhSachRap.maHeThongRap}`}

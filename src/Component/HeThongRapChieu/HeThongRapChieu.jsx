@@ -29,10 +29,11 @@ export default function HeThongRapChieu() {
           <div className="col-11">
             <div class="tab-content" id="v-pills-tabContent">
               {chiTietCumRap?.map((danhSachRap, index) => {
+                let classActive = index === 0 ? "active" : "";
                 return (
                   <div
                     key={index}
-                    class="tab-pane fade show " //active
+                    className={`tab-pane fade show ${classActive}`} //active
                     id={`${danhSachRap.maHeThongRap}`}
                     role="tabpanel"
                     aria-labelledby="v-pills-home-tab"
@@ -46,10 +47,11 @@ export default function HeThongRapChieu() {
                           aria-orientation="vertical"
                         >
                           {danhSachRap.lstCumRap?.map((thongTinRap, index) => {
+                            let classActive = index === 0 ? "active" : "";
                             return (
                               <a
                                 key={index}
-                                className="nav-link"
+                                className={`nav-link ${classActive}`}
                                 id={`${danhSachRap.maHeThongRap}`}
                                 data-toggle="pill"
                                 href={`#${thongTinRap.maCumRap}`}
@@ -67,17 +69,33 @@ export default function HeThongRapChieu() {
                       <div className="col-8">
                         <div className="tab-content" id="v-pills-tabContent">
                           {danhSachRap.lstCumRap?.map((thongTinRap, index) => {
+                            let classActive = index === 0 ? "active" : "";
                             return (
                               <div
                                 key={index}
-                                className="tab-pane fade"
+                                className={`tab-pane fade show ${classActive}`}
                                 id={thongTinRap.maCumRap}
                                 role="tabpanel"
                                 aria-labelledby="v-pills-messages-tab"
                               >
                                 {thongTinRap.danhSachPhim?.map(
                                   (phim, index) => {
-                                    return <h5> {phim.tenPhim}</h5>;
+                                    return (
+                                      <div key={index}>
+                                        <h5> {phim.tenPhim}</h5>
+                                        <div className="row">
+                                          {phim.lstLichChieuTheoPhim
+                                            ?.slice(0, 8)
+                                            .map((lichChieu, index) => {
+                                              return (
+                                                <a href="#" className="col-3">
+                                                  {lichChieu.ngayChieuGioChieu}
+                                                </a>
+                                              );
+                                            })}
+                                        </div>
+                                      </div>
+                                    );
                                   }
                                 )}
                               </div>
