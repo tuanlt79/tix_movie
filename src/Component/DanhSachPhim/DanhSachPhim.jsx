@@ -8,7 +8,7 @@ import { layDanhSachPhimAction } from "../../Action/PhimAction";
 export default function DanhSachPhim() {
   const dispatch = useDispatch();
   const mangPhim = useSelector((state) => state.PhimReducer.mangPhim);
-  console.log(mangPhim);
+  // console.log(mangPhim);
 
   useEffect(() => {
     dispatch(layDanhSachPhimAction());
@@ -42,7 +42,7 @@ export default function DanhSachPhim() {
 
             <div className="card-body">
               <div className="card__info text-left">
-                <h4 className="card-title " style={{ fontSize: "18px" }}>
+                <h4 className="card-title mt-3 " style={{ fontSize: "18px" }}>
                   {item.tenPhim}
                 </h4>
               </div>
