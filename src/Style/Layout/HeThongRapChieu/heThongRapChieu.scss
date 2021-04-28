@@ -1,2 +1,32 @@
 .navs {
+  .col-1 {
+    border: 1px solid #ebebec;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    padding: 0px;
+    .nav {
+      a {
+        padding: 20px;
+
+        transition: all 0.2s;
+      }
+    }
+  }
+
+  .nav-pills .nav-link.active,
+  .nav-pills .show > .nav-link {
+    color: black;
+    // background-color: $primary;
+  }
+  .col-11 {
+    .tab-content {
+      .col-4 {
+        .react-scroll-to-bottom--css-vwizf-79elbk {
+          .react-scroll-to-bottom--css-awjxu-1n7m0yu {
+            height: 650px;
+          }
+        }
+      }
+    }
+  }
 }

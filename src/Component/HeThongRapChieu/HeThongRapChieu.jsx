@@ -1,6 +1,9 @@
 import React, { Fragment, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import moment from "moment";
 import { layThongTinHeThongCumRapAction } from "../../Action/PhimAction";
+import ScrollToBottom from "react-scroll-to-bottom";
+
 import ThongTinRap from "./ThongTinRap";
 
 export default function HeThongRapChieu() {
@@ -40,31 +43,37 @@ export default function HeThongRapChieu() {
                   >
                     <div className="row">
                       <div className="col-4">
-                        <div
-                          className="nav flex-column nav-pills"
-                          id="v-pills-tab"
-                          role="tablist"
-                          aria-orientation="vertical"
-                        >
-                          {danhSachRap.lstCumRap?.map((thongTinRap, index) => {
-                            let classActive = index === 0 ? "active" : "";
-                            return (
-                              <a
-                                key={index}
-                                className={`nav-link ${classActive}`}
-                                id={`${danhSachRap.maHeThongRap}`}
-                                data-toggle="pill"
-                                href={`#${thongTinRap.maCumRap}`}
-                                role="tab"
-                                aria-controls="v-pills-messages"
-                                aria-selected="false"
-                              >
-                                <h5>{thongTinRap.tenCumRap}</h5>
-                                <span>{thongTinRap.diaChi}</span>
-                              </a>
-                            );
-                          })}
-                        </div>
+                        <ScrollToBottom height="550px" width="100%">
+                          <div
+                            className="nav flex-column nav-pills"
+                            id="v-pills-tab"
+                            role="tablist"
+                            aria-orientation="vertical"
+                          >
+                            {danhSachRap.lstCumRap?.map(
+                              (thongTinRap, index) => {
+                                let classActive = index === 0 ? "active" : "";
+                                return (
+                                  <a
+                                    key={index}
+                                    className={`nav-link ${classActive}`}
+                                    id={`${danhSachRap.maHeThongRap}`}
+                                    data-toggle="pill"
+                                    href={`#${thongTinRap.maCumRap}`}
+                                    role="tab"
+                                    aria-controls="v-pills-messages"
+                                    aria-selected="false"
+                                  >
+                                    <h5>{thongTinRap.tenCumRap}</h5>
+                                    <span>
+                                      {thongTinRap.diaChi.substr(0, 33)}...
+                                    </span>
+                                  </a>
+                                );
+                              }
+                            )}
+                          </div>
+                        </ScrollToBottom>
                       </div>
                       <div className="col-8">
                         <div className="tab-content" id="v-pills-tabContent">
@@ -89,7 +98,9 @@ export default function HeThongRapChieu() {
                                             .map((lichChieu, index) => {
                                               return (
                                                 <a href="#" className="col-3">
-                                                  {lichChieu.ngayChieuGioChieu}
+                                                  {moment(
+                                                    lichChieu.ngayChieuGioChieu
+                                                  ).format("hh:mm A")}
                                                 </a>
                                               );
                                             })}
