@@ -22,28 +22,32 @@ export const layDanhSachPhimAction = () => {
 //API 2
 export const thongTinHeThongRapAction = () => {
   return async (dispatch) => {
-    let result = await axios({
-      url:
-        "https://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinHeThongRap",
-      method: "GET",
-    });
-    dispatch({
-      type: "LAY_THONG_TIN_RAP",
-      cumRap: result.data,
-    });
+    try {
+      let result = await axios({
+        url:
+          "https://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinHeThongRap",
+        method: "GET",
+      });
+      dispatch({
+        type: "LAY_THONG_TIN_RAP",
+        cumRap: result.data,
+      });
+    } catch (errors) {}
   };
 };
 //API 3
 export const layThongTinHeThongCumRapAction = () => {
   return async (dispatch) => {
-    let result = await axios({
-      url:
-        "https://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maNhom=GP02",
-      method: "GET",
-    });
-    dispatch({
-      type: "LAY_CHI_TIET_RAP",
-      chiTietCumRap: result.data,
-    });
+    try {
+      let result = await axios({
+        url:
+          "https://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maNhom=GP02",
+        method: "GET",
+      });
+      dispatch({
+        type: "LAY_CHI_TIET_RAP",
+        chiTietCumRap: result.data,
+      });
+    } catch (errors) {}
   };
 };
