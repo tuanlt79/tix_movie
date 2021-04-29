@@ -30,7 +30,7 @@ export default function Carousel() {
             <img className="d-block w-100" src={logo2} />
           </div>
           <div className="carousel-item ">
-            <img className="d-block w-100" src={logo3} />
+            <img className="d-block w-100" src={logo3} height="777.55px" />
           </div>
           <div className="carousel-item ">
             <img className="d-block w-100" src={logo4} />
