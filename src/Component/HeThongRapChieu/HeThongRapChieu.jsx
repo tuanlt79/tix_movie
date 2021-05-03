@@ -12,15 +12,15 @@ export default function HeThongRapChieu() {
   useEffect(() => {
     dispatch(layThongTinHeThongCumRapAction());
   }, []);
-  console.log({ chiTietCumRap });
+  // console.log({ chiTietCumRap });
 
   return (
     <div className="navs">
       <div className="container my-5">
         <div className="row">
-          <div className="col-1">
+          <div className="col-1 col-lg-1 col-md-2 ">
             <div
-              className="nav flex-column nav-pills"
+              className="nav flex-column nav-pills logo__rap"
               id="v-pills-tab"
               role="tablist"
               aria-orientation="vertical"
@@ -28,7 +28,7 @@ export default function HeThongRapChieu() {
               <ThongTinRap />
             </div>
           </div>
-          <div className="col-11">
+          <div className="col-11 col-lg-11 col-md-10">
             <div class="tab-content" id="v-pills-tabContent">
               {chiTietCumRap?.map((danhSachRap, index) => {
                 let classActive = index === 0 ? "active" : "";
@@ -50,7 +50,7 @@ export default function HeThongRapChieu() {
                           aria-orientation="vertical"
                         >
                           {danhSachRap.lstCumRap
-                            ?.slice(0, 6)
+                            ?.slice(0, 5)
                             .map((thongTinRap, index) => {
                               let classActive = index === 0 ? "active" : "";
 
@@ -67,7 +67,7 @@ export default function HeThongRapChieu() {
                                 >
                                   <h5>{thongTinRap.tenCumRap}</h5>
                                   <span>
-                                    {thongTinRap.diaChi.substr(0, 40)}...
+                                    {thongTinRap.diaChi.substr(0, 50)}...
                                   </span>
                                 </a>
                               );

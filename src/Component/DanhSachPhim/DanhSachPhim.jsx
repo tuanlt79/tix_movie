@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import LightLity from "lity";
 import { faPlay, faStar } from "@fortawesome/free-solid-svg-icons";
 import { layDanhSachPhimAction } from "../../Action/PhimAction";
+import { NavLink } from "react-router-dom";
 
 export default function DanhSachPhim() {
   const dispatch = useDispatch();
@@ -47,7 +48,7 @@ export default function DanhSachPhim() {
                 </h4>
               </div>
               <div className="showHover">
-                <a href="#">MUA VÉ</a>
+                <NavLink to={`detail/${item.maPhim}`}>MUA VÉ</NavLink>
               </div>
             </div>
           </div>

@@ -5,6 +5,12 @@
   .card {
     border: none;
     position: relative;
+    @media (max-width: 576px) {
+      margin-left: 13%;
+    }
+    @media (max-width: 768px) {
+      margin-left: 17%;
+    }
 
     img {
       border-radius: 4px;

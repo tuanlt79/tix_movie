@@ -15,7 +15,7 @@ export default function ThongTinRap() {
       return (
         <a
           key={index}
-          className={`nav-link ${classActive}`}
+          className={`text-center nav-link ${classActive}`}
           id="v-pills-home-tab"
           data-toggle="pill"
           href={`#${danhSachRap.maHeThongRap}`}

@@ -109,7 +109,7 @@
             border-color: rgba(238, 238, 238, 0.88);
           }
           h5 {
-            @include Text($cSecondary, $h6 - 2, $medium);
+            @include Text($cRed, $h6 - 2, $medium);
           }
           .row {
             a {
@@ -120,12 +120,23 @@
               text-align: center;
               background-color: rgba(246, 246, 246, 0.5);
               border-radius: 7px;
-              color: #9b9b9b;
+              color: $cSecondary;
               border: 1px solid #e4e4e4;
+              max-width: 100px;
+              margin: 5px;
+              &:hover {
+                color: $cRed !important;
+              }
             }
           }
         }
       }
     }
+  }
+
+  @media (max-width: 576px) {
+    display: none;
+  }
+  @media (max-width: 768px) {
   }
 }

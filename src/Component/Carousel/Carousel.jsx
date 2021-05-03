@@ -19,7 +19,7 @@ export default function Carousel() {
             className="active"
           />
           <li data-target="#carouselExampleIndicators" data-slide-to={1} />
-          <li data-target="#carouselExampleIndicators" data-slide-to={2} />
+          {/* <li data-target="#carouselExampleIndicators" data-slide-to={2} /> */}
           <li data-target="#carouselExampleIndicators" data-slide-to={3} />
         </ol>
         <div className="carousel-inner">
@@ -29,9 +29,9 @@ export default function Carousel() {
           <div className="carousel-item ">
             <img className="d-block w-100" src={logo2} />
           </div>
-          <div className="carousel-item ">
-            <img className="d-block w-100" src={logo3} height="777.55px" />
-          </div>
+          {/* <div className="carousel-item ">
+            <img className="d-block w-100" src={logo3} />
+          </div> */}
           <div className="carousel-item ">
             <img className="d-block w-100" src={logo4} />
           </div>
