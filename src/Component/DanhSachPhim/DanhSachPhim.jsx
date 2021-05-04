@@ -58,7 +58,7 @@ export default function DanhSachPhim() {
   };
   return (
     <section className="silder container my-5 text-center">
-      <h1>Phim Đang Chiếu</h1>
+      <h1 id="lichChieu">Phim Đang Chiếu</h1>
       <div className="row mt-5">{renderFilm()}</div>
     </section>
   );

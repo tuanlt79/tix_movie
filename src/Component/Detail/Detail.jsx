@@ -15,7 +15,19 @@ export default function Detail(props) {
 
   return (
     <section className="detail">
-      <div className="bgr__main">
+      <div className="background_main">
+        <div className="style__blur">
+          <img src={chiTietPhim.hinhAnh} alt="" />
+        </div>
+        <div className="detail__content container">
+          <img
+            src={chiTietPhim.hinhAnh}
+            alt=""
+            style={{ width: 240, objectFit: "cover", height: 380 }}
+          />
+        </div>
+      </div>
+      {/* <div className="bgr__main">
         <div className="detail__bgr">
           <img src={chiTietPhim.hinhAnh} alt="" />
         </div>
@@ -49,7 +61,7 @@ export default function Detail(props) {
           </div>
         </div>
       </div>
-      sdkjfal;jlfk
+      sdkjfal;jlfk */}
     </section>
   );
 }

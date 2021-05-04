@@ -2,7 +2,7 @@ import React, { Fragment, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import moment from "moment";
 import { layThongTinHeThongCumRapAction } from "../../Action/PhimAction";
-// import ScrollToBottom from "react-scroll-to-bottom";
+import ScrollToBottom from "react-scroll-to-bottom";
 import ThongTinRap from "./ThongTinRap";
 
 export default function HeThongRapChieu() {
@@ -15,7 +15,7 @@ export default function HeThongRapChieu() {
   // console.log({ chiTietCumRap });
 
   return (
-    <div className="navs">
+    <div className="navs" id="cumRap">
       <div className="container my-5">
         <div className="row">
           <div className="col-1 col-lg-1 col-md-2 ">
@@ -42,7 +42,7 @@ export default function HeThongRapChieu() {
                   >
                     <div className="row">
                       <div className="col-5">
-                        {/* <ScrollToBottom> */}
+                        {/* <ScrollToBottom className="croll__rap"> */}
                         <div
                           className="nav flex-column nav-pills"
                           id="v-pills-tab"

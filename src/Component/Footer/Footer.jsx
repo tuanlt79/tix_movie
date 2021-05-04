@@ -5,7 +5,6 @@ import thongBao from "../../Assets/img/daThongBao.png";
 export default function Footer() {
   const dispatch = useDispatch();
   const cumRap = useSelector((state) => state.PhimReducer.cumRap);
-  console.log("logo", cumRap);
   return (
     <footer>
       <div className="container">
