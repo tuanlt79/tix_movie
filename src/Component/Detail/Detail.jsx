@@ -89,14 +89,14 @@ export default function Detail(props) {
                   return (
                     <div
                       key={index}
-                      className={`tab-pane fade show  rap__hr  ${classActive}`} //active
+                      className={`tab-pane fade show  cum__Rap  ${classActive}`} //active
                       id={`${item.maHeThongRap}`}
                       role="tabpanel"
                       aria-labelledby="v-pills-home-tab"
                     >
                       {item.cumRapChieu?.map((cumRap, index) => {
                         return (
-                          <Fragment key={index}>
+                          <div className="rap__hr " key={index}>
                             <h2 className="">{cumRap.tenCumRap}</h2>
                             <p>2D Digital</p>
                             <div className="row">
@@ -104,7 +104,7 @@ export default function Detail(props) {
                                 ?.slice(0, 8)
                                 .map((lichChieu, index) => {
                                   return (
-                                    <a href="#" className="col-3 ">
+                                    <a href="#" className="col-3 ngay__Chieu">
                                       {moment(
                                         lichChieu.ngayChieuGioChieu
                                       ).format("hh:mm A")}
@@ -112,7 +112,7 @@ export default function Detail(props) {
                                   );
                                 })}
                             </div>
-                          </Fragment>
+                          </div>
                         );
                       })}
                     </div>
