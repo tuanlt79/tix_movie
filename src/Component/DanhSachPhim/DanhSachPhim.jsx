@@ -20,7 +20,7 @@ export default function DanhSachPhim() {
         <div className=" my-3 col-lg-3  col-sm-12 col-md-6 " key={index}>
           <div href="#" className="card" style={{ width: "250px" }}>
             <div className="silder__img">
-              <a href="#" className="img__overlay">
+              <NavLink to={`detail/${item.maPhim}`} className="img__overlay">
                 <img
                   className="card-img-top"
                   src={item.hinhAnh}
@@ -30,7 +30,7 @@ export default function DanhSachPhim() {
                     objectFit: "cover",
                   }}
                 />
-              </a>
+              </NavLink>
               <p className="point">
                 <FontAwesomeIcon icon={faStar} />
                 {item.danhGia} <span>/10</span>
