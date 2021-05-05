@@ -5,6 +5,7 @@ import LightLity from "lity";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay, faStar } from "@fortawesome/free-solid-svg-icons";
 import { Fragment } from "react";
+import Footer from "../Footer/Footer";
 import moment from "moment";
 
 export default function Detail(props) {
@@ -16,7 +17,7 @@ export default function Detail(props) {
   }, []);
   console.log({ chiTietPhim });
   return (
-    <section className="detail">
+    <section className="detail ">
       <div className="background_main">
         <div className="style__blur">
           <img src={chiTietPhim.hinhAnh} alt="" />
@@ -48,6 +49,7 @@ export default function Detail(props) {
                 <button>Mua Vé</button>
               </div>
             </div>
+            <div className="col-5">{chiTietPhim.moTa}</div>
           </div>
         </div>
       </div>
@@ -123,6 +125,7 @@ export default function Detail(props) {
           </div>
         </div>
       </div>
+      <Footer />
     </section>
   );
 }
