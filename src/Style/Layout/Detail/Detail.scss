@@ -32,10 +32,21 @@
       width: 100%;
       left: 50%;
       transform: translate3d(-50%, -50%, 0);
+      @media (max-width: 576px) {
+        top: 0;
+        width: 100%;
+        left: 0;
+        transform: translate3d(-3%, 3%, 0);
+      }
       .img__film {
         width: 240px;
         img {
           border-radius: 5px;
+          @media (max-width: 576px) {
+            width: 405px !important;
+
+            height: 200px !important;
+          }
         }
         a {
           color: $primary;
@@ -54,6 +65,10 @@
           .svg-inline--fa {
             margin-left: 8px;
           }
+          @media (max-width: 576px) {
+            opacity: 1;
+            transform: translate(270%, -220%);
+          }
         }
         &:hover .iconHover {
           opacity: 1;
@@ -64,6 +79,13 @@
         top: 50%;
         transform: translateY(-50%);
         left: 45%;
+        @media (max-width: 576px) {
+          position: static;
+          width: 360px;
+          top: 0%;
+          transform: translateY(0%);
+          left: 0%;
+        }
         .mr-1 {
           color: $cRed;
         }
@@ -173,7 +195,7 @@
           }
           .rap__hr {
             position: relative;
-            padding-bottom: 17px;
+            padding: 17px;
 
             width: 100%;
 

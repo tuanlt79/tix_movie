@@ -47,9 +47,9 @@ export default function Detail(props) {
                   {chiTietPhim.danhGia} <span>/10</span>
                 </p>
                 <button>Mua Vé</button>
+                <p>{chiTietPhim.moTa?.substr(0, 150)}...</p>
               </div>
             </div>
-            <div className="col-5">{chiTietPhim.moTa}</div>
           </div>
         </div>
       </div>
@@ -125,7 +125,6 @@ export default function Detail(props) {
           </div>
         </div>
       </div>
-      <Footer />
     </section>
   );
 }
