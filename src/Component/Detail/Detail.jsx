@@ -106,7 +106,10 @@ export default function Detail(props) {
                                 ?.slice(0, 8)
                                 .map((lichChieu, index) => {
                                   return (
-                                    <a href="#" className="col-3 ngay__Chieu">
+                                    <a
+                                      href="#"
+                                      className="col-sm-6 ngay__Chieu"
+                                    >
                                       {moment(
                                         lichChieu.ngayChieuGioChieu
                                       ).format("hh:mm A")}

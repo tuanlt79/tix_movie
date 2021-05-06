@@ -81,10 +81,14 @@
         left: 45%;
         @media (max-width: 576px) {
           position: static;
-          width: 360px;
+          width: 360px !important;
           top: 0%;
           transform: translateY(0%);
-          left: 0%;
+          left: 0% !important;
+        }
+        @media (max-width: 768px) {
+          width: 100%;
+          left: 65%;
         }
         .mr-1 {
           color: $cRed;
@@ -148,6 +152,17 @@
         background-color: transparent;
       }
       .detail__logo {
+        @media (max-width: 576px) {
+          a {
+            text-align: center;
+            font-size: 14px;
+          }
+          .rap__info {
+            h2 {
+              font-size: 14px;
+            }
+          }
+        }
         a {
           padding: 20px;
           position: relative;
@@ -190,16 +205,20 @@
           width: 100%;
           position: relative;
           margin-bottom: 0;
+          @media (max-width: 576px) {
+            padding: 15px 5px;
+          }
           h2 {
             @include Text($cRed, $h6, $medium);
           }
           .rap__hr {
             position: relative;
             padding: 17px;
-
             width: 100%;
-
             margin-bottom: 0;
+            @media (max-width: 576px) {
+              padding: 5px;
+            }
             &::after {
               content: "";
               position: absolute;
