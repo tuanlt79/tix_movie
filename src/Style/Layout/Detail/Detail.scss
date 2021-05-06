@@ -110,8 +110,9 @@
         p {
           color: $primary;
         }
-        button {
+        .mua__ve {
           font-size: $subtitle2;
+          display: inline-block;
           border-radius: 4px;
           text-align: center;
           background: 0 0;

@@ -18,7 +18,7 @@ export const layDanhSachPhimAction = () => {
       dispatch({
         type: "closeLoading",
       });
-    }, 400);
+    }, 700);
   };
 };
 //API 2
@@ -56,7 +56,7 @@ export const layThongTinHeThongCumRapAction = () => {
 //API 4
 export const layChiTietPhimAction = (maPhim) => {
   return async (dispatch) => {
-    dispatch({ type: "openLoadng" });
+    dispatch({ type: "openLoading" });
     setTimeout(async () => {
       try {
         let result = await axios({
@@ -73,6 +73,29 @@ export const layChiTietPhimAction = (maPhim) => {
       dispatch({
         type: "closeLoading",
       });
-    }, 400);
+    }, 700);
+  };
+};
+//API 5
+export const layThongTinPhongVeAction = (maLichChieu) => {
+  return async (dispatch) => {
+    dispatch({ type: "openLoading" });
+    setTimeout(async () => {
+      try {
+        let result = await axios({
+          url: `https://movie0706.cybersoft.edu.vn/api/QuanLyDatVe/LayDanhSachPhongVe?MaLichChieu=${maLichChieu}`,
+          method: "GET",
+        });
+        dispatch({
+          type: "LAY_THONG_TIN_PHONG_VE",
+          thongTinPhongVe: result.data,
+        });
+      } catch (errors) {
+        console.log(errors);
+      }
+      dispatch({
+        type: "closeLoading",
+      });
+    }, 700);
   };
 };

@@ -1,6 +1,8 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import webLogo from "../../Assets/img/web-logo.png";
+// import webLogo from "../../Assets/img/web-logo.png";
+import webLogo2 from "../../Assets/img/Bean Eater-1s-200px.gif";
+
 export default function Loading() {
   const dispatch = useDispatch();
   const isloading = useSelector((state) => state.LoadingReducer.loading);
@@ -28,7 +30,7 @@ export default function Loading() {
               backgroundColor: "#fff",
             }}
           >
-            <img src={webLogo} width="150px" />
+            <img src={webLogo2} />
           </div>
         </div>
       );

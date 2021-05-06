@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { layChiTietPhimAction } from "../../Action/PhimAction";
 import LightLity from "lity";
@@ -15,7 +16,7 @@ export default function Detail(props) {
     let { id } = props.match.params;
     dispatch(layChiTietPhimAction(id));
   }, []);
-  console.log({ chiTietPhim });
+  // console.log({ chiTietPhim });
   return (
     <section className="detail ">
       <div className="background_main">
@@ -46,14 +47,16 @@ export default function Detail(props) {
                   <FontAwesomeIcon icon={faStar} className="mr-1" />
                   {chiTietPhim.danhGia} <span>/10</span>
                 </p>
-                <button>Mua Vé</button>
+                <a href="#muaVe" className="mua__ve">
+                  Mua Vé
+                </a>
                 <p>{chiTietPhim.moTa?.substr(0, 150)}...</p>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div className="lich__chieu">
+      <div className="lich__chieu" id="muaVe">
         <h1 className="text-center mb-5">Lịch Chiếu</h1>
         <div className="container ">
           <div className="row lichChieu__bg">
@@ -106,14 +109,14 @@ export default function Detail(props) {
                                 ?.slice(0, 8)
                                 .map((lichChieu, index) => {
                                   return (
-                                    <a
-                                      href="#"
+                                    <NavLink
+                                      to={`/checkout/${lichChieu.maLichChieu}`}
                                       className="col-sm-6 ngay__Chieu"
                                     >
                                       {moment(
                                         lichChieu.ngayChieuGioChieu
                                       ).format("hh:mm A")}
-                                    </a>
+                                    </NavLink>
                                   );
                                 })}
                             </div>

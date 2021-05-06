@@ -6,7 +6,7 @@ export default function Header() {
     <header>
       <div>
         <nav className="navbar fixed-top navbar-expand-md navbar-dark bg-white">
-          <a className="navbar-brand" href="#"></a>
+          <NavLink className="navbar-brand" to="/"></NavLink>
           <button
             className="navbar-toggler"
             type="button"
