@@ -1,2 +1,19 @@
 .checkout {
+  .step__checkout {
+    position: fixed;
+    background-color: #fff;
+    box-shadow: 0 0 15px rgb(0 0 0 / 30%);
+    z-index: 3;
+    top: -1px;
+    left: 0;
+    width: 65%;
+    height: 80px;
+  }
+  .seat__checkout {
+    margin-left: 10%;
+    margin-top: 80px;
+    float: left;
+    padding-top: 30px;
+    width: 69.7%;
+  }
 }
