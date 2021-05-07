@@ -4,6 +4,7 @@ import moment from "moment";
 import { layThongTinHeThongCumRapAction } from "../../Action/PhimAction";
 import ScrollToBottom from "react-scroll-to-bottom";
 import ThongTinRap from "./ThongTinRap";
+import { NavLink } from "react-router-dom";
 
 export default function HeThongRapChieu() {
   const dispatch = useDispatch();
@@ -98,11 +99,14 @@ export default function HeThongRapChieu() {
                                             ?.slice(0, 8)
                                             .map((lichChieu, index) => {
                                               return (
-                                                <a href="#" className="col-3">
+                                                <NavLink
+                                                  to={`/checkout/${lichChieu.maLichChieu}`}
+                                                  className="col-3"
+                                                >
                                                   {moment(
                                                     lichChieu.ngayChieuGioChieu
                                                   ).format("hh:mm A")}
-                                                </a>
+                                                </NavLink>
                                               );
                                             })}
                                         </div>

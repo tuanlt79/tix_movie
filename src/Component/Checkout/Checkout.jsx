@@ -6,27 +6,59 @@ import { layThongTinPhongVeAction } from "../../Action/PhimAction";
 export default function Checkout(props) {
   const dispatch = useDispatch();
   const { thongTinPhongVe } = useSelector((state) => state.PhimReducer);
+  const { danhSachGheDangDat } = useSelector(
+    (state) => state.QuanLyDatVeReducer
+  );
   useEffect(() => {
     let { id } = props.match.params;
     dispatch(layThongTinPhongVeAction(id));
   }, []);
-  console.log({ thongTinPhongVe });
+  console.log({ danhSachGheDangDat });
   let renderGhe = () => {
     return thongTinPhongVe.danhSachGhe?.map((ghe, index) => {
+      let indexGheDD = danhSachGheDangDat.findIndex(
+        (gheDangDat) => gheDangDat.maGhe === ghe.maGhe
+      );
+      let classGheDD = indexGheDD !== -1 ? "gheDangDat" : "";
+      let classDaDat = ghe.daDat ? "gheDaDat" : "";
+      let classGheVip = ghe.loaiGhe === "Vip" ? "gheVip" : "";
+
       return (
         <Fragment key={index}>
-          <button>{ghe.stt}</button>
-          {(index + 1) % 12 === 0 ? <br /> : ""}
+          <button
+            className={`ghe ${classDaDat} ${classGheVip}  ${classGheDD} `}
+            disabled={ghe.daDat}
+            onClick={() => {
+              dispatch({ type: "DAT_GHE", ghe });
+            }}
+          >
+            {ghe.daDat === true ? "X" : ghe.stt}
+          </button>
+          {(index + 1) % 16 === 0 ? <br /> : ""}
         </Fragment>
       );
     });
   };
+  const renderGheDD = () => {
+    return danhSachGheDangDat.map((gheDD, index) => {
+      return (
+        <Fragment key={index}>
+          <span className="mr-1">{gheDD.stt},</span>
+        </Fragment>
+      );
+    });
+  };
+  let totalGiaVe = () => {
+    return danhSachGheDangDat.reduce((tongTien, gheDat, index) => {
+      return (tongTien += gheDat.giaVe);
+    }, 0);
+  };
   return (
     <section className="checkout">
       <div className="container-fluid">
-        <div className="row">
-          <div className="seat__map">
-            <div className="col-lg-9">
+        <div className="seat__map">
+          <div className="row">
+            <div className="col-lg-8">
               <div className="step__checkout">
                 <span> CHỌN GHẾ & THANH TOÁN</span>
               </div>
@@ -37,10 +69,41 @@ export default function Checkout(props) {
                     alt=""
                   />
                 </div>
-                <div className="listseat">{renderGhe()}</div>
+                <div className="list__seat">{renderGhe()}</div>
               </div>
             </div>
-            <div className="col-lg-3"></div>
+            <div className="col-lg-4">
+              <div className="right__checkout">
+                <div className="total">
+                  <p className="cash">{totalGiaVe().toLocaleString()} đ</p>
+                </div>
+                <div className="checkout__info ">
+                  <span>{thongTinPhongVe.thongTinPhim?.tenPhim}</span>
+
+                  <div className="content__cinema">
+                    <div> Địa Chỉ: {thongTinPhongVe.thongTinPhim?.diaChi}</div>
+
+                    <div>
+                      Ngày: {thongTinPhongVe.thongTinPhim?.ngayChieu} -
+                      {thongTinPhongVe.thongTinPhim?.gioChieu} -
+                      {thongTinPhongVe.thongTinPhim?.tenRap}
+                    </div>
+                  </div>
+                </div>
+                <div className="chair">
+                  <p>Ghế: {renderGheDD()}</p>
+
+                  <img
+                    src={thongTinPhongVe.thongTinPhim?.hinhAnh}
+                    width="100%"
+                    height="500"
+                    // style={{ objectFit: "cover" }}
+                    alt=""
+                  />
+                </div>
+                <div className="buy__ticket">Đặt vé</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
