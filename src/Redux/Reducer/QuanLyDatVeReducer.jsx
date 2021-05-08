@@ -15,6 +15,10 @@ export const QuanLyDatVeReducer = (state = stateDatVe, action) => {
       state.danhSachGheDangDat = [...state.danhSachGheDangDat];
       return { ...state };
     }
+    case "resetDSG": {
+      state.danhSachGheDangDat = [];
+      return { ...state };
+    }
 
     default:
       break;

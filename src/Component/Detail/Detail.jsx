@@ -15,6 +15,9 @@ export default function Detail(props) {
   useEffect(() => {
     let { id } = props.match.params;
     dispatch(layChiTietPhimAction(id));
+    return () => {
+      dispatch({ type: "resetDSG" });
+    };
   }, []);
   // console.log({ chiTietPhim });
   return (

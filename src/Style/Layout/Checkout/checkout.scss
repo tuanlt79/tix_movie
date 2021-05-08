@@ -8,6 +8,14 @@
     left: 0;
     width: 90%;
     height: 80px;
+    .info__step {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: space-around;
+      align-items: center;
+      width: 70%;
+      height: 80px;
+    }
   }
   .seat__checkout {
     margin-top: 80px;
@@ -19,7 +27,7 @@
     button {
       border: none;
       &:focus {
-        // border-color: $cRed;
+        outline: 0;
       }
     }
     .ghe {
@@ -28,6 +36,7 @@
       margin: 5px;
       background-color: $ghe;
       border-radius: 5px;
+      color: $primary;
     }
     .gheDaDat {
       background-color: $gheDaDat !important;
@@ -39,6 +48,36 @@
     }
     .gheDangDat {
       background-color: $gheDangDat !important;
+    }
+  }
+  .seat__type {
+    span {
+      margin-top: 15%;
+      margin-right: 30px;
+      display: inline-block;
+    }
+    .ghe__dadat {
+      height: 30px;
+      width: 30px;
+      margin: 5px;
+      background-color: $gheDaDat;
+      border-radius: 5px;
+      text-align: center;
+      line-height: 2;
+      display: inline-block;
+      color: $primary;
+    }
+    .ghe__thuong {
+      @extend .ghe__dadat;
+      background-color: $ghe;
+    }
+    .ghe__vip {
+      @extend .ghe__dadat;
+      background-color: $gheVip;
+    }
+    .ghe__dangchon {
+      @extend .ghe__dadat;
+      background-color: $gheDangDat;
     }
   }
   .right__checkout {
@@ -58,18 +97,34 @@
       margin: 15px 0;
       text-align: center;
       font-size: $h2 + 4;
-      color: #44c020 !important;
+      color: $gheDangDat !important;
     }
     .checkout__info {
       border-bottom: 1px dashed $boderBot;
       padding-bottom: 12.5px;
       font-size: 16px;
+      p {
+        @include Text($cPrimary, $h4, $semiBold);
+      }
+      span {
+        margin-right: 6px;
+        background-color: #fb4226;
+        color: #ffff;
+        font-size: 16px;
+        border-radius: 4px;
+        padding: 0 5px;
+        display: inline-block;
+        text-align: center;
+      }
     }
     .chair {
       border-bottom: 1px dashed $boderBot;
       //   padding-bottom: 12.5px;
       padding-top: 12.5px;
       margin-bottom: 12.5px;
+      p {
+        color: $cRed;
+      }
     }
     .buy__ticket {
       padding-top: 15px;

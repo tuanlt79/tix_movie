@@ -26,7 +26,7 @@ export default function Checkout(props) {
       return (
         <Fragment key={index}>
           <button
-            className={`ghe ${classDaDat} ${classGheVip}  ${classGheDD} `}
+            className={`ghe ${classDaDat} ${classGheVip} ${classGheDD} `}
             disabled={ghe.daDat}
             onClick={() => {
               dispatch({ type: "DAT_GHE", ghe });
@@ -60,7 +60,13 @@ export default function Checkout(props) {
           <div className="row">
             <div className="col-lg-8">
               <div className="step__checkout">
-                <span> CHỌN GHẾ & THANH TOÁN</span>
+                <div className="info__step">
+                  {" "}
+                  <div> CHỌN GHẾ & THANH TOÁN</div>
+                  <div>
+                    <a href="#"> Tên Đăng Nhập</a>
+                  </div>
+                </div>
               </div>
               <div className="seat__checkout">
                 <div className="screen">
@@ -70,6 +76,24 @@ export default function Checkout(props) {
                   />
                 </div>
                 <div className="list__seat">{renderGhe()}</div>
+                <div className="seat__type container">
+                  <span>
+                    <div className="ghe__dadat">X</div>
+                    <p>Ghế đã có người chọn</p>
+                  </span>
+                  <span>
+                    <div className="ghe__thuong"></div>
+                    <p>Ghế Thường</p>
+                  </span>
+                  <span>
+                    <div className="ghe__vip"></div>
+                    <p>Ghế Vip</p>
+                  </span>
+                  <span>
+                    <div className="ghe__dangchon"></div>
+                    <p>Ghế Đang Chọn</p>
+                  </span>
+                </div>
               </div>
             </div>
             <div className="col-lg-4">
@@ -78,7 +102,10 @@ export default function Checkout(props) {
                   <p className="cash">{totalGiaVe().toLocaleString()} đ</p>
                 </div>
                 <div className="checkout__info ">
-                  <span>{thongTinPhongVe.thongTinPhim?.tenPhim}</span>
+                  <p>
+                    <span>C16</span>
+                    {thongTinPhongVe.thongTinPhim?.tenPhim}
+                  </p>
 
                   <div className="content__cinema">
                     <div> Địa Chỉ: {thongTinPhongVe.thongTinPhim?.diaChi}</div>
