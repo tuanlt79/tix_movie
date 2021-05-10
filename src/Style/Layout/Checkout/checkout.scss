@@ -8,6 +8,9 @@
     left: 0;
     width: 90%;
     height: 80px;
+    @include MediaQuery($md) {
+      width: 100%;
+    }
     .info__step {
       display: flex;
       flex-wrap: nowrap;
@@ -15,12 +18,22 @@
       align-items: center;
       width: 70%;
       height: 80px;
+      @include MediaQuery($md) {
+        width: 100%;
+      }
     }
   }
   .seat__checkout {
     margin-top: 80px;
     text-align: center;
     padding-top: 30px;
+    .screen {
+      img {
+        @include MediaQuery($sm) {
+          width: 100%;
+        }
+      }
+    }
   }
   .list__seat {
     text-align: center;
@@ -52,8 +65,8 @@
   }
   .seat__type {
     span {
-      margin-top: 15%;
-      margin-right: 30px;
+      margin-top: 10%;
+
       display: inline-block;
     }
     .ghe__dadat {
@@ -81,6 +94,14 @@
     }
   }
   .right__checkout {
+    @include MediaQuery($md) {
+      position: static;
+      width: 100%;
+
+      img {
+        display: none;
+      }
+    }
     position: fixed;
 
     top: 0;

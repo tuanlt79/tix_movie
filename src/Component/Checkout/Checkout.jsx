@@ -61,7 +61,6 @@ export default function Checkout(props) {
             <div className="col-lg-8">
               <div className="step__checkout">
                 <div className="info__step">
-                  {" "}
                   <div> CHỌN GHẾ & THANH TOÁN</div>
                   <div>
                     <a href="#"> Tên Đăng Nhập</a>
@@ -77,22 +76,24 @@ export default function Checkout(props) {
                 </div>
                 <div className="list__seat">{renderGhe()}</div>
                 <div className="seat__type container">
-                  <span>
-                    <div className="ghe__dadat">X</div>
-                    <p>Ghế đã có người chọn</p>
-                  </span>
-                  <span>
-                    <div className="ghe__thuong"></div>
-                    <p>Ghế Thường</p>
-                  </span>
-                  <span>
-                    <div className="ghe__vip"></div>
-                    <p>Ghế Vip</p>
-                  </span>
-                  <span>
-                    <div className="ghe__dangchon"></div>
-                    <p>Ghế Đang Chọn</p>
-                  </span>
+                  <div className="row">
+                    <span className="col-sm-1 col-md-3 ">
+                      <div className="ghe__dadat ">X</div>
+                      <p>Ghế đã có người chọn</p>
+                    </span>
+                    <span className="col-sm-1 col-md-3 ">
+                      <div className="ghe__thuong "></div>
+                      <p>Ghế Thường</p>
+                    </span>
+                    <span className="col-sm-1 col-md-3 ">
+                      <div className="ghe__vip "></div>
+                      <p>Ghế Vip</p>
+                    </span>
+                    <span className="col-sm-1 col-md-3 ">
+                      <div className="ghe__dangchon "></div>
+                      <p>Ghế Đang Chọn</p>
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
