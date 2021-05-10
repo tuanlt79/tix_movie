@@ -1,4 +1,7 @@
 .checkout {
+  p {
+    margin-bottom: 0px;
+  }
   .step__checkout {
     position: fixed;
     background-color: $primary;
@@ -119,6 +122,11 @@
       text-align: center;
       font-size: $h2 + 4;
       color: $gheDangDat !important;
+      .cash {
+        @include MediaQuery($sm) {
+          padding-top: 15px;
+        }
+      }
     }
     .checkout__info {
       border-bottom: 1px dashed $boderBot;
@@ -145,6 +153,10 @@
       margin-bottom: 12.5px;
       p {
         color: $cRed;
+        margin-bottom: 10px;
+      }
+      img {
+        border-radius: 5px;
       }
     }
     .buy__ticket {
@@ -154,6 +166,7 @@
       font-size: $h5;
       text-align: center;
       color: $boderBot !important;
+      border-radius: 5px;
       background-image: linear-gradient(223deg, #b4ec51 0, #429321 100%);
     }
   }

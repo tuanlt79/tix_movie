@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import screen from "../../Assets/img/screen.png";
 import { Fragment } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { layThongTinPhongVeAction } from "../../Action/PhimAction";
@@ -69,30 +70,29 @@ export default function Checkout(props) {
               </div>
               <div className="seat__checkout">
                 <div className="screen">
-                  <img
-                    src="https://tix.vn/app/assets/img/icons/screen.png"
-                    alt=""
-                  />
+                  <img src={screen} alt="" />
                 </div>
                 <div className="list__seat">{renderGhe()}</div>
-                <div className="seat__type container">
-                  <div className="row">
-                    <span className="col-sm-1 col-md-3 ">
-                      <div className="ghe__dadat ">X</div>
-                      <p>Ghế đã có người chọn</p>
-                    </span>
-                    <span className="col-sm-1 col-md-3 ">
-                      <div className="ghe__thuong "></div>
-                      <p>Ghế Thường</p>
-                    </span>
-                    <span className="col-sm-1 col-md-3 ">
-                      <div className="ghe__vip "></div>
-                      <p>Ghế Vip</p>
-                    </span>
-                    <span className="col-sm-1 col-md-3 ">
-                      <div className="ghe__dangchon "></div>
-                      <p>Ghế Đang Chọn</p>
-                    </span>
+                <div className="seat__type ">
+                  <div className="container">
+                    <div className="row">
+                      <span className="col-sm-3 col-md-3 ">
+                        <div className="ghe__dadat ">X</div>
+                        <p>Ghế đã có người chọn</p>
+                      </span>
+                      <span className="col-sm-3 col-md-3 ">
+                        <div className="ghe__thuong "></div>
+                        <p>Ghế Thường</p>
+                      </span>
+                      <span className="col-sm-3 col-md-3 ">
+                        <div className="ghe__vip "></div>
+                        <p>Ghế Vip</p>
+                      </span>
+                      <span className="col-sm-3 col-md-3 ">
+                        <div className="ghe__dangchon "></div>
+                        <p>Ghế Đang Chọn</p>
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
