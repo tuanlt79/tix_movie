@@ -23,6 +23,18 @@ header {
         }
         color: $cGray;
         font-size: $body1;
+
+        .btn__Logout {
+          width: 120px;
+          text-align: center;
+          background-color: #959595;
+          border-radius: 4px;
+          color: #fff;
+          padding: 3px;
+          transition: background-color 0.2s ease;
+          border-radius: 4px;
+          outline: none;
+        }
       }
     }
   }

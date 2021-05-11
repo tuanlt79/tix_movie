@@ -1,4 +1,5 @@
 import axios from "axios";
+import { domain, maNhom } from "../configs/setting";
 
 export const layDanhSachPhimAction = () => {
   return async (dispatch) => {
@@ -6,8 +7,7 @@ export const layDanhSachPhimAction = () => {
     setTimeout(async () => {
       try {
         let result = await axios({
-          url:
-            "https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP02",
+          url: `${domain}/api/QuanLyPhim/LayDanhSachPhim?maNhom=${maNhom}`,
           method: "GET",
         });
         dispatch({
@@ -26,8 +26,7 @@ export const thongTinHeThongRapAction = () => {
   return async (dispatch) => {
     try {
       let result = await axios({
-        url:
-          "https://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinHeThongRap",
+        url: `${domain}/api/QuanLyRap/LayThongTinHeThongRap`,
         method: "GET",
       });
       dispatch({
@@ -42,8 +41,7 @@ export const layThongTinHeThongCumRapAction = () => {
   return async (dispatch) => {
     try {
       let result = await axios({
-        url:
-          "https://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maNhom=GP02",
+        url: `${domain}/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maNhom=${maNhom}`,
         method: "GET",
       });
       dispatch({
@@ -60,7 +58,7 @@ export const layChiTietPhimAction = (maPhim) => {
     setTimeout(async () => {
       try {
         let result = await axios({
-          url: `https://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinLichChieuPhim?MaPhim=${maPhim}`,
+          url: `${domain}/api/QuanLyRap/LayThongTinLichChieuPhim?MaPhim=${maPhim}`,
           method: "GET",
         });
         dispatch({
@@ -83,7 +81,7 @@ export const layThongTinPhongVeAction = (maLichChieu) => {
     setTimeout(async () => {
       try {
         let result = await axios({
-          url: `https://movie0706.cybersoft.edu.vn/api/QuanLyDatVe/LayDanhSachPhongVe?MaLichChieu=${maLichChieu}`,
+          url: `${domain}/api/QuanLyDatVe/LayDanhSachPhongVe?MaLichChieu=${maLichChieu}`,
           method: "GET",
         });
         dispatch({

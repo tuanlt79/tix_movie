@@ -3,6 +3,8 @@ import screen from "../../Assets/img/screen.png";
 import { Fragment } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { layThongTinPhongVeAction } from "../../Action/PhimAction";
+import { taiKhoan } from "../../configs/setting";
+import { Redirect } from "react-router";
 
 export default function Checkout(props) {
   const dispatch = useDispatch();
@@ -54,6 +56,9 @@ export default function Checkout(props) {
       return (tongTien += gheDat.giaVe);
     }, 0);
   };
+  if (!localStorage.getItem(taiKhoan)) {
+    return <Redirect to="/login" />;
+  }
   return (
     <section className="checkout">
       <div className="container-fluid">

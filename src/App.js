@@ -1,14 +1,16 @@
 import "./App.scss";
 import Home from "./Pages/Home/Home";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Router, Switch } from "react-router-dom";
 import Loading from "./Component/Loading/Loading";
 import Detail from "./Component/Detail/Detail";
 import { HeaderTemplate } from "./template/HeaderTemplate";
 import Checkout from "./Component/Checkout/Checkout";
 import Login from "./Component/Login/Login";
+import { createBrowserHistory } from "history";
+export const history = createBrowserHistory();
 function App() {
   return (
-    <BrowserRouter>
+    <Router history={history}>
       <div className="App">
         <Loading />
         <Switch>
@@ -19,7 +21,7 @@ function App() {
           <Route exact path="/" component={Home} />
         </Switch>
       </div>
-    </BrowserRouter>
+    </Router>
   );
 }
 
