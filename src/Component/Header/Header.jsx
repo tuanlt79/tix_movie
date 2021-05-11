@@ -51,7 +51,7 @@ export default function Header() {
                 <button
                   className="ml-2 btn__Logout"
                   onClick={() => {
-                    dispatch({ type: "DANG_XUAT", taiKhoan });
+                    dispatch({ type: "DANG_XUAT" });
                   }}
                 >
                   Đăng Xuất

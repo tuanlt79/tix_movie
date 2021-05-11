@@ -1,5 +1,5 @@
 import { taiKhoan } from "../../configs/setting";
-
+import { history } from "../../App";
 let taiKhoanNguoiDung = "";
 if (localStorage.getItem(taiKhoan)) {
   //kiểm tra tài khoản có trong localStorage không
@@ -17,8 +17,8 @@ export const UserReducer = (state = stateDefault, action) => {
     }
     case "DANG_XUAT": {
       localStorage.clear();
-      state.taiKhoan = action.taiKhoan;
-      return { ...state };
+
+      return { ...state, taiKhoan: "" };
     }
 
     default: {
