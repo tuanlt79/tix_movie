@@ -10,7 +10,7 @@ export const loginUserAction = (nguoiDung) => {
         data: nguoiDung,
       });
       // lấy giá trị api gửi về localstorge
-      console.log(result.data);
+      // console.log(result.data);
 
       localStorage.setItem("token", result.data.accessToken);
       localStorage.setItem("taiKhoan", JSON.stringify(result.data));

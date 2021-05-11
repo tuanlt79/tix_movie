@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import screen from "../../Assets/img/screen.png";
+import logouser from "../../Assets/img/avatar.png";
 import { Fragment } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { layThongTinPhongVeAction } from "../../Action/PhimAction";
@@ -16,7 +17,7 @@ export default function Checkout(props) {
     let { id } = props.match.params;
     dispatch(layThongTinPhongVeAction(id));
   }, []);
-  console.log({ danhSachGheDangDat });
+  // console.log({ danhSachGheDangDat });
   let renderGhe = () => {
     return thongTinPhongVe.danhSachGhe?.map((ghe, index) => {
       let indexGheDD = danhSachGheDangDat.findIndex(
@@ -69,7 +70,10 @@ export default function Checkout(props) {
                 <div className="info__step">
                   <div> CHỌN GHẾ & THANH TOÁN</div>
                   <div>
-                    <a href="#"> Tên Đăng Nhập</a>
+                    <span className="btnLogin">
+                      <img className="imgLogin" src={logouser} />
+                      {JSON.parse(localStorage.getItem(taiKhoan)).taiKhoan}
+                    </span>
                   </div>
                 </div>
               </div>

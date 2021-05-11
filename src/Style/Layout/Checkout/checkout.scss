@@ -24,6 +24,16 @@
       @include MediaQuery($md) {
         width: 100%;
       }
+      .btnLogin {
+        .imgLogin {
+          background-image: url("../../../Assets/img/avatar.png");
+          @include BGI(center, cover, 30px, 30px);
+          border-radius: 50%;
+          margin-right: 10px;
+        }
+        color: $cGray;
+        font-size: $body1;
+      }
     }
   }
   .seat__checkout {
