@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { layThongTinPhongVeAction } from "../../Action/PhimAction";
 import { taiKhoan } from "../../configs/setting";
 import { Redirect } from "react-router";
+import { datVeAction } from "../../Action/QuanLyDatVeAction";
 
 export default function Checkout(props) {
   const dispatch = useDispatch();
@@ -134,11 +135,23 @@ export default function Checkout(props) {
                     src={thongTinPhongVe.thongTinPhim?.hinhAnh}
                     width="100%"
                     height="500"
-                    // style={{ objectFit: "cover" }}
                     alt=""
                   />
                 </div>
-                <div className="buy__ticket">Đặt vé</div>
+                <div
+                  className="buy__ticket"
+                  onClick={() => {
+                    let userLogin = JSON.parse(localStorage.getItem(taiKhoan));
+                    let thongTinDatVe = {
+                      maLichChieu: props.match.params.id,
+                      danhSachVe: danhSachGheDangDat,
+                      taiKhoanNguoiDung: userLogin.taiKhoan,
+                    };
+                    dispatch(datVeAction(thongTinDatVe));
+                  }}
+                >
+                  Đặt vé
+                </div>
               </div>
             </div>
           </div>

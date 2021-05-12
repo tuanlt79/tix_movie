@@ -12,7 +12,7 @@ export const loginUserAction = (nguoiDung) => {
       // lấy giá trị api gửi về localstorge
       // console.log(result.data);
 
-      localStorage.setItem("token", result.data.accessToken);
+      localStorage.setItem("accessToken", result.data.accessToken);
       localStorage.setItem("taiKhoan", JSON.stringify(result.data));
       //đăng nhập thành công chuyển về trang home
       history.push("/");

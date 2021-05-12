@@ -1,5 +1,4 @@
 import { taiKhoan } from "../../configs/setting";
-import { history } from "../../App";
 let taiKhoanNguoiDung = "";
 if (localStorage.getItem(taiKhoan)) {
   //kiểm tra tài khoản có trong localStorage không
