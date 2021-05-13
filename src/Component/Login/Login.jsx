@@ -11,20 +11,26 @@ export default function Login() {
   useEffect(() => {
     dispatch({ type: "closeLoading" });
   }, []);
-  const { errors, touched, handleBlur, handleChange, handleSubmit, isValid } =
-    useFormik({
-      initialValues: {
-        taiKhoan: "",
-        matKhau: "",
-      },
-      validationSchema: yup.object().shape({
-        taiKhoan: yup.string().required("Tài khoản không được bỏ trống !"),
-        matKhau: yup.string().required("Mật khẩu không được bỏ trống !"),
-      }),
-      onSubmit: (values) => {
-        dispatch(loginUserAction(values));
-      },
-    });
+  const {
+    errors,
+    touched,
+    handleBlur,
+    handleChange,
+    handleSubmit,
+    isValid,
+  } = useFormik({
+    initialValues: {
+      taiKhoan: "",
+      matKhau: "",
+    },
+    validationSchema: yup.object().shape({
+      taiKhoan: yup.string().required("Tài khoản không được bỏ trống !"),
+      matKhau: yup.string().required("Mật khẩu không được bỏ trống !"),
+    }),
+    onSubmit: (values) => {
+      dispatch(loginUserAction(values));
+    },
+  });
   return (
     <section
       className="signin "

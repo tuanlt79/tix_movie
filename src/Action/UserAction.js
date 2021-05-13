@@ -25,3 +25,16 @@ export const loginUserAction = (nguoiDung) => {
     }
   };
 };
+
+//API 6
+export const addUserAction = (infoUser) => {
+  return async (dispatch) => {
+    try {
+      let result = await axios({
+        url: `${domain}/api/QuanLyNguoiDung/DangKy`,
+        method: "POST",
+        data: infoUser,
+      });
+    } catch (errors) {}
+  };
+};
