@@ -27,13 +27,18 @@ export const loginUserAction = (nguoiDung) => {
 };
 
 //API 6
-export const addUserAction = (infoUser) => {
+export const addUserAction = (user) => {
   return async (dispatch) => {
     try {
       let result = await axios({
         url: `${domain}/api/QuanLyNguoiDung/DangKy`,
         method: "POST",
-        data: infoUser,
+        data: user,
+      });
+
+      dispatch({
+        type: "DANG_KY",
+        user: result.data.user,
       });
     } catch (errors) {}
   };

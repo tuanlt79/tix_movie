@@ -1,19 +1,19 @@
 const stateDefault = {
-  addUser: {
-    //         taiKhoan: "",
-    //   matKhau: "",
-    //   email: "",
-    //   soDt: "",
-    //   maNhom: "GP02",
-    //   maLoaiNguoiDung: "KhachHang",
-    //         hoTen: ""
+  user: {
+    taiKhoan: "",
+    matKhau: "",
+    email: "",
+    soDt: "",
+    hoTen: "",
+    maNhom: "GP02",
+    maLoaiNguoiDung: "KhachHang",
   },
 };
 
 export const AddUserReducer = (state = stateDefault, action) => {
   switch (action.type) {
     case "DANG_KY": {
-      state.addUser = { ...action.addUser };
+      state.user = { ...action.user };
     }
 
     default: {
