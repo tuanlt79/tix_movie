@@ -14,10 +14,10 @@ export const UserReducer = (state = stateDefault, action) => {
       state.taiKhoan = action.taiKhoan;
       return { ...state };
     }
-    case "DANG_XUAT": {
-      localStorage.clear();
 
-      return { ...state, taiKhoan: "" };
+    case "DANG_KY": {
+      state.taiKhoan = action.taiKhoan;
+      return { ...state };
     }
 
     default: {

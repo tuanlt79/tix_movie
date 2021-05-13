@@ -1,15 +1,14 @@
 import { useFormik } from "formik";
 import * as yup from "yup";
 import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import background2 from "../../Assets/img/bg2.jpg";
 import logoLogin from "../../Assets/img/group@2x.png";
 import { addUserAction } from "../../Action/UserAction";
 export default function Register() {
   const dispatch = useDispatch();
-  // const { user } = useSelector((state) => state.AddUserReducer);
-  // console.log(user);
+
   useEffect(() => {
     dispatch({ type: "closeLoading" });
   }, []);
@@ -21,8 +20,6 @@ export default function Register() {
         email: "",
         soDt: "",
         hoTen: "",
-        maNhom: "GP02",
-        maLoaiNguoiDung: "KhachHang",
       },
       validationSchema: yup.object().shape({
         taiKhoan: yup
@@ -50,6 +47,8 @@ export default function Register() {
         hoTen: yup.string().required("Họ Tên không được bỏ trống !"),
       }),
       onSubmit: (values) => {
+        values.maNhom = "GP02";
+        values.maLoaiNguoiDung = "KhachHang";
         dispatch(addUserAction(values));
         console.log(values);
       },

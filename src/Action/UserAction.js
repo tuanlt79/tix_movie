@@ -35,10 +35,15 @@ export const addUserAction = (user) => {
         method: "POST",
         data: user,
       });
-
+      if (result.status === 200) {
+        localStorage.setItem("accessToken", result.data.accessToken);
+        localStorage.setItem("taiKhoan", JSON.stringify(result.data));
+        alert("Đăng ký thành công");
+      }
+      history.push("/login");
       dispatch({
         type: "DANG_KY",
-        user: result.data.user,
+        taiKhoan: result.data.taiKhoan,
       });
     } catch (errors) {}
   };
