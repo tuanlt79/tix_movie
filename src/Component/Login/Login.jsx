@@ -76,7 +76,12 @@ export default function Login() {
               Đăng Nhập
             </button>
           </form>
-          <div className="signin__close"></div>
+          <div className="register__user mt-3">
+            <p>
+              Bạn chưa có Tài Khoản?
+              <NavLink to="/register"> Tạo Tài Khoản</NavLink>
+            </p>
+          </div>
         </div>
       </div>
     </section>

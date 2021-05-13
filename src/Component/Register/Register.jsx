@@ -40,10 +40,7 @@ export default function Register() {
         soDt: yup
           .string()
           .required("SDT không được bỏ trống !")
-          .matches(
-            /^([0]([.][0-9]+)?|[1-9]([0-9]+)?([.][0-9]+)?)$/,
-            "Nhập số !"
-          ),
+          .matches(/(03|05|07|08|09|01[2|6|8|9])+([0-9]{8})\b/, "Nhập số !"),
         hoTen: yup.string().required("Họ Tên không được bỏ trống !"),
       }),
       onSubmit: (values) => {

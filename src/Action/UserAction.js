@@ -40,7 +40,7 @@ export const addUserAction = (user) => {
         localStorage.setItem("taiKhoan", JSON.stringify(result.data));
         alert("Đăng ký thành công");
       }
-      history.push("/login");
+      history.push("/");
       dispatch({
         type: "DANG_KY",
         taiKhoan: result.data.taiKhoan,
