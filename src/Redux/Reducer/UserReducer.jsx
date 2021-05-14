@@ -1,20 +1,15 @@
 import { taiKhoan } from "../../configs/setting";
 let taiKhoanNguoiDung = "";
-let emailUser = "";
-let hoTenUser = "";
-let soDt = "";
-
+let userLocal = "";
 if (localStorage.getItem(taiKhoan)) {
   //kiểm tra tài khoản có trong localStorage không
-  let tkNguoiDungStore = localStorage.getItem(taiKhoan);
-
-  // taiKhoanNguoiDung = JSON.parse(tkNguoiDungStore).taiKhoan;
-  // emailUser = JSON.parse(tkNguoiDungStore).email;
-
-  let { taiKhoan, email } = JSON.parse(tkNguoiDungStore);
+  let tkNguoiDungStore = localStorage.getItem("taiKhoan");
+  taiKhoanNguoiDung = JSON.parse(tkNguoiDungStore).taiKhoan;
+  let { taiKhoan, email, hoTen, soDT } = JSON.parse(tkNguoiDungStore);
+  userLocal = { taiKhoan, email, hoTen, soDT };
 }
 const stateDefault = {
-  taiKhoan: taiKhoanNguoiDung,
+  taiKhoan: userLocal.taiKhoan,
 };
 export const UserReducer = (state = stateDefault, action) => {
   switch (action.type) {
