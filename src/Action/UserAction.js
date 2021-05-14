@@ -1,5 +1,5 @@
 import axios from "axios";
-import { domain } from "../configs/setting";
+import { accessToken, domain } from "../configs/setting";
 import { history } from "../App.js";
 export const loginUserAction = (nguoiDung) => {
   return async (dispatch) => {
@@ -46,6 +46,23 @@ export const addUserAction = (user) => {
         taiKhoan: result.data.taiKhoan,
       });
     } catch (errors) {}
+  };
+};
+
+export const profileUser = (user) => {
+  return async (dispatch) => {
+    try {
+      let result = await axios({
+        url: `${domain}/api/QuanLyNguoiDung/ThongTinTaiKhoan`,
+        method: "POST",
+        data: user,
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem(accessToken),
+        },
+      });
+    } catch (errors) {
+      console.log(errors);
+    }
   };
 };
 
