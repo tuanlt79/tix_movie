@@ -23,7 +23,10 @@ export const UserReducer = (state = stateDefault, action) => {
       state.taiKhoan = action.taiKhoan;
       return { ...state };
     }
-
+    case "EDIT_USER": {
+      state.taiKhoan = action.taiKhoan;
+      return { ...state };
+    }
     default: {
       return { ...state };
     }

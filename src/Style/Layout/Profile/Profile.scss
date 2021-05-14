@@ -1,0 +1,6 @@
+.profile {
+  @include BGI(center, contain, 100vw, 100vh);
+  .profile__user {
+    padding-top: 100px;
+  }
+}

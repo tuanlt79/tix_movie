@@ -8,6 +8,7 @@ import Checkout from "./Component/Checkout/Checkout";
 import Login from "./Component/Login/Login";
 import { createBrowserHistory } from "history";
 import Register from "./Component/Register/Register";
+import Profile from "./Component/Profile/Profile";
 export const history = createBrowserHistory();
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route exact path="/checkout/:id" component={Checkout} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
+          <HeaderTemplate exact path="/profile" Component={Profile} />
           <Route exact path="/" component={Home} />
         </Switch>
       </div>

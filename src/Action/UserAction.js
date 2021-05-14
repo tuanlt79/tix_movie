@@ -48,3 +48,21 @@ export const addUserAction = (user) => {
     } catch (errors) {}
   };
 };
+
+export const editUser = (user) => {
+  return async (dispatch) => {
+    try {
+      let result = await axios({
+        url: `${domain}/api/QuanLyNguoiDung/CapNhatThongTinNguoiDung`,
+        method: "PUT",
+        data: user,
+      });
+      dispatch({
+        type: "EDIT_USER",
+        taiKhoan: result.data.taiKhoan,
+      });
+    } catch (errors) {
+      console.log(errors);
+    }
+  };
+};
