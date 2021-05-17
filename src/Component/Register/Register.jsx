@@ -47,7 +47,7 @@ export default function Register() {
         values.maNhom = "GP02";
         values.maLoaiNguoiDung = "KhachHang";
         dispatch(addUserAction(values));
-        console.log(values);
+        // console.log(values);
       },
     });
   return (

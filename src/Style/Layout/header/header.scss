@@ -21,19 +21,22 @@ header {
           border-radius: 50%;
           margin-right: 10px;
         }
-        color: $cGray;
-        font-size: $body1;
 
+        .header__user {
+          color: $cGray;
+          font-size: $body1;
+        }
         .btn__Logout {
-          width: 80px;
+          // width: 50px;
           text-align: center;
           background-color: #959595;
           border-radius: 4px;
           color: $primary;
-          padding: 2px;
+          padding: 3px;
           transition: background-color 0.2s ease;
           border-radius: 4px;
           outline: none;
+          font-size: $body1;
         }
       }
     }

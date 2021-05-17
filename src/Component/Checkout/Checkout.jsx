@@ -7,6 +7,7 @@ import { layThongTinPhongVeAction } from "../../Action/PhimAction";
 import { taiKhoan } from "../../configs/setting";
 import { Redirect } from "react-router";
 import { datVeAction } from "../../Action/QuanLyDatVeAction";
+import { NavLink } from "react-router-dom";
 
 export default function Checkout(props) {
   const dispatch = useDispatch();
@@ -72,8 +73,10 @@ export default function Checkout(props) {
                   <div> CHỌN GHẾ & THANH TOÁN</div>
                   <div>
                     <span className="btnLogin">
-                      <img className="imgLogin" src={logouser} />
-                      {JSON.parse(localStorage.getItem(taiKhoan)).taiKhoan}
+                      <NavLink to="/profile" className="header__user">
+                        <img className="imgLogin" alt="" src={logouser} />
+                        {JSON.parse(localStorage.getItem(taiKhoan)).taiKhoan}
+                      </NavLink>
                     </span>
                   </div>
                 </div>

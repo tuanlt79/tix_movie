@@ -1,5 +1,5 @@
 import axios from "axios";
-import { accessToken, domain } from "../configs/setting";
+import { accessToken, domain, taiKhoan } from "../configs/setting";
 import { history } from "../App.js";
 export const loginUserAction = (nguoiDung) => {
   return async (dispatch) => {
@@ -60,6 +60,14 @@ export const profileUser = (user) => {
           Authorization: "Bearer " + localStorage.getItem(accessToken),
         },
       });
+      // console.log("data", result.data);
+      if (result.status === 200) {
+        // console.log("thanhcong");
+      }
+      dispatch({
+        type: "LAY_THONG_TIN_USER",
+        thongTinUser: result.data,
+      });
     } catch (errors) {
       console.log(errors);
     }
@@ -74,6 +82,7 @@ export const editUser = (user) => {
         method: "PUT",
         data: user,
       });
+
       dispatch({
         type: "EDIT_USER",
         taiKhoan: result.data.taiKhoan,

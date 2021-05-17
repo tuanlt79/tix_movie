@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { history } from "../../App";
 
 export default function Header() {
   const { taiKhoan } = useSelector((state) => state.UserReducer);
@@ -46,12 +47,16 @@ export default function Header() {
             </ul>
             {taiKhoan !== "" ? (
               <span className="btnLogin ">
-                <img className="imgLogin" alt="" />
-                {taiKhoan}
+                <NavLink to="/profile" className="header__user">
+                  <img className="imgLogin" alt="" />
+                  {taiKhoan}
+                </NavLink>
                 <button
                   className="ml-2 btn__Logout"
                   onClick={() => {
-                    dispatch({ type: "DANG_XUAT" });
+                    dispatch({
+                      type: "DANG_XUAT",
+                    });
                   }}
                 >
                   Đăng Xuất
