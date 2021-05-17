@@ -51,26 +51,30 @@ export const addUserAction = (user) => {
 
 export const profileUser = (user) => {
   return async (dispatch) => {
-    try {
-      let result = await axios({
-        url: `${domain}/api/QuanLyNguoiDung/ThongTinTaiKhoan`,
-        method: "POST",
-        data: user,
-        headers: {
-          Authorization: "Bearer " + localStorage.getItem(accessToken),
-        },
-      });
-      // console.log("data", result.data);
-      if (result.status === 200) {
-        // console.log("thanhcong");
+    dispatch({ type: "openLoading" });
+    setTimeout(async () => {
+      try {
+        let result = await axios({
+          url: `${domain}/api/QuanLyNguoiDung/ThongTinTaiKhoan`,
+          method: "POST",
+          data: user,
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem(accessToken),
+          },
+        });
+        // console.log("data", result.data);
+        if (result.status === 200) {
+          // console.log("thanhcong");
+        }
+        dispatch({
+          type: "LAY_THONG_TIN_USER",
+          thongTinUser: result.data,
+        });
+      } catch (errors) {
+        console.log(errors);
       }
-      dispatch({
-        type: "LAY_THONG_TIN_USER",
-        thongTinUser: result.data,
-      });
-    } catch (errors) {
-      console.log(errors);
-    }
+      dispatch({ type: "closeLoading" });
+    }, 700);
   };
 };
 

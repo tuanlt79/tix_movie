@@ -1,0 +1,26 @@
+.admin {
+  .admin__logo {
+    display: block;
+  }
+  .bg__admin {
+    width: 100wh;
+    height: 100vh;
+  }
+  button {
+    font-size: 16px;
+    display: inline-block;
+    border-radius: 4px;
+    text-align: center;
+    background: 0 0;
+    padding: 7px 25px;
+    transition: all 0.2s;
+    margin-top: 25px;
+    margin-bottom: 20px;
+    background-color: #fb4226;
+    border: none;
+    color: #fff;
+  }
+  .admin__info {
+    margin-top: 105px;
+  }
+}

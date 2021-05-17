@@ -14,7 +14,6 @@ export default function Profile() {
   const thongTinUser = useSelector((state) => state.UserReducer.thongTinUser);
 
   useEffect(() => {
-    dispatch({ type: "closeLoading" });
     if (!localStorage.getItem(taiKhoan)) {
       return <Redirect to="/login" />;
     }
