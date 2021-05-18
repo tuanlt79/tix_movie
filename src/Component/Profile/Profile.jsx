@@ -133,7 +133,7 @@ export default function Profile() {
                       <input
                         type="text"
                         className="form-control"
-                        placeholder={thongTinUser.taiKhoan}
+                        value={thongTinUser.taiKhoan}
                         disabled
                         onChange={handleChange}
                         aria-describedby="basic-addon1"
@@ -149,7 +149,7 @@ export default function Profile() {
                       <input
                         type="text"
                         className="form-control"
-                        placeholder={thongTinUser.email}
+                        value={thongTinUser.email}
                         disabled
                         onChange={handleChange}
                         aria-describedby="basic-addon1"
@@ -167,7 +167,7 @@ export default function Profile() {
                       <input
                         type="text"
                         className="form-control"
-                        placeholder={thongTinUser.hoTen}
+                        value={thongTinUser.hoTen}
                         onChange={handleChange}
                         aria-describedby="basic-addon1"
                         name="hoTen"
@@ -182,7 +182,7 @@ export default function Profile() {
                       <input
                         type="text"
                         className="form-control"
-                        placeholder={thongTinUser.soDT}
+                        value={thongTinUser.soDT}
                         onChange={handleChange}
                         aria-describedby="basic-addon1"
                         name="soDt"
@@ -197,7 +197,7 @@ export default function Profile() {
                       <input
                         type="password"
                         className="form-control"
-                        placeholder="Nhập Mật Khẩu Mới"
+                        value="Nhập Mật Khẩu Mới"
                         aria-describedby="basic-addon1"
                         name="matKhau"
                         onChange={handleChange}

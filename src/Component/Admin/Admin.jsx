@@ -4,8 +4,7 @@ import logo from "../../Assets/img/web-logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
-import { taiKhoan } from "../../configs/setting";
-import { Redirect } from "react-router";
+
 export default class PhimInsert extends Component {
   state = {
     maPhim: 0,
@@ -53,6 +52,7 @@ export default class PhimInsert extends Component {
   };
 
   render() {
+    const dateFormat = "DD/MM/YYYY";
     return (
       <section className="admin">
         <div className="container-fluid">
@@ -177,7 +177,7 @@ export default class PhimInsert extends Component {
                         </span>
                       </div>
                       <input
-                        type="text"
+                        type="date"
                         className="form-control"
                         placeholder="Nhập dd/mm/yyyy"
                         aria-describedby="basic-addon1"
