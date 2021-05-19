@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 
-export default class PhimInsert extends Component {
+export default class Admin extends Component {
   state = {
     maPhim: 0,
     tenPhim: "",
@@ -13,7 +13,7 @@ export default class PhimInsert extends Component {
     trailer: "",
     hinhAnh: {},
     moTa: "",
-    maNhom: "GP02",
+    maNhom: "GP06",
     ngayKhoiChieu: "",
     danhGia: 0,
   };
@@ -50,7 +50,11 @@ export default class PhimInsert extends Component {
         console.log(err.response.data);
       });
   };
-
+  // componentDidMount() {
+  //   this.props.dispatch({
+  //     type: "closeLoading",
+  //   });
+  // }
   render() {
     const dateFormat = "DD/MM/YYYY";
     return (

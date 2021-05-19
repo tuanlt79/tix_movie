@@ -98,46 +98,31 @@ export const layThongTinPhongVeAction = (maLichChieu) => {
     }, 700);
   };
 };
-// export const addFilm = (value) => {
-//   return async (dispatch) => {
-//     dispatch({ type: "openLoading" });
-//     setTimeout(async () => {
-//       try {
-//         console.log("hihi");
-//         // const result = await axios({
-//         //   url: "https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/ThemPhim",
-//         //   method: "POST",
-//         //   data: value,
-//         //   headers: {
-//         //     Authorization: "Bearer  " + token,
-//         //   },
-//         // });
-//         // console.log(result);
-//         // let frm = new FormData();
-//         // frm.append("file", hinhAnh);
-//         //   var form_data = new FormData();
-//         //   for (var key in value) {
-//         //     form_data.append(key, value[key]);
-//         //     console.log(value);
-//         //   }
-//         //   let promise = await axios({
-//         //     url: "http://movie0706.cybersoft.edu.vn/api/quanlyphim/ThemPhimUploadHinh",
-//         //     method: "POST",
-//         //     data: form_data,
-//         //   });
-//         //   promise.then((res) => {});
-//         //   promise.catch((err) => {
-//         //     console.log(err.response?.data);
-//         //   });
-//         //   alert("Thêm Khóa Học Thành Công");
-//         //   history.push("/");
-//         //   window.location.reload();
-//       } catch (errors) {
-//         console.log(errors);
-//       }
-//       dispatch({
-//         type: "closeLoading",
-//       });
-//     }, 700);
-//   };
-// };
+export const addFilm = (value, hinhAnh) => {
+  return async (dispatch) => {
+    dispatch({ type: "openLoading" });
+    setTimeout(async () => {
+      var form_data = new FormData();
+      form_data.append("file", hinhAnh);
+      try {
+        let promise = await axios({
+          url: "http://movie0706.cybersoft.edu.vn/api/quanlyphim/ThemPhimUploadHinh",
+          method: "POST",
+          data: form_data,
+        });
+        promise.then((res) => {});
+        promise.catch((err) => {
+          console.log(err.response?.data);
+        });
+        alert("Thêm Khóa Học Thành Công");
+        history.push("/");
+        window.location.reload();
+      } catch (errors) {
+        console.log(errors);
+      }
+      dispatch({
+        type: "closeLoading",
+      });
+    }, 700);
+  };
+};

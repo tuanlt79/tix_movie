@@ -23,7 +23,7 @@ export default function AdminF(props) {
     trailer: "",
     hinhAnh: {},
     moTa: "",
-    maNhom: "GP02",
+    maNhom: "GP06",
     ngayKhoiChieu: "",
     danhGia: 0,
   });
@@ -130,9 +130,9 @@ export default function AdminF(props) {
                   <Formik
                     initialValues={userAddition}
                     validationSchema={userAddtionSchema}
-                    onSubmit={(values) => {
-                      //   dispatch(addFilm(values));
-                      console.log(values);
+                    onSubmit={(value) => {
+                      dispatch(addFilm(value, uploadPic.hinhAnh));
+                      // console.log(form_data);
                     }}
                   >
                     {({ errors, touched, values }) => (
@@ -311,17 +311,18 @@ export default function AdminF(props) {
                                 setUploadPic(
                                   { hinhAnh: e.target.files[0] },
                                   () => {
-                                    console.log(setUploadPic);
+                                    console.log(uploadPic);
                                   }
                                 );
                               } else {
                                 setUploadPic(
                                   { [e.target.name]: e.target.value },
                                   () => {
-                                    console.log(setUploadPic);
+                                    console.log(uploadPic);
                                   }
                                 );
                               }
+                              console.log(e.target);
                             }}
                           />
                         </div>

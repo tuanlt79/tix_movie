@@ -35,7 +35,7 @@ export default function Profile() {
     },
     onSubmit: (values) => {
       values.hoTen = `${getUser.hoTen}`;
-      values.maNhom = "GP02";
+      values.maNhom = "GP06";
       //   values.maLoaiNguoiDung = "KhachHang";
       values.taiKhoan = `${getUser.taiKhoan}`;
       values.email = `${getUser.email}`;
