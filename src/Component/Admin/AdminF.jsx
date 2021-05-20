@@ -8,7 +8,7 @@ import * as Yup from "yup";
 import { Formik, Field, Form } from "formik";
 
 import { Redirect } from "react-router";
-import { addFilm } from "../../Action/PhimAction";
+// import { addFilm } from "../../Action/PhimAction";
 export default function AdminF(props) {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -131,8 +131,8 @@ export default function AdminF(props) {
                     initialValues={userAddition}
                     validationSchema={userAddtionSchema}
                     onSubmit={(value) => {
-                      dispatch(addFilm(value, uploadPic.hinhAnh));
-                      // console.log(form_data);
+                      // dispatch(addFilm(value, uploadPic.hinhAnh));
+                      console.log(value);
                     }}
                   >
                     {({ errors, touched, values }) => (

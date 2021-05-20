@@ -4,7 +4,7 @@ import { editUser, profileUser } from "../../Action/UserAction";
 import bg2 from "../../Assets/img/bg2.jpg";
 import { taiKhoan } from "../../configs/setting";
 import moment from "moment";
-import { Redirect, Route } from "react-router";
+import { Redirect } from "react-router";
 import { useFormik } from "formik";
 import { Fragment } from "react";
 

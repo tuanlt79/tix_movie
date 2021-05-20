@@ -37,18 +37,20 @@ export default class Admin extends Component {
     var form_data = new FormData();
     for (var key in this.state) {
       form_data.append(key, this.state[key]);
+      console.log(this.state[key]);
     }
-    axios({
-      url: "http://movie0706.cybersoft.edu.vn/api/quanlyphim/ThemPhimUploadHinh",
-      method: "POST",
-      data: form_data,
-    })
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err.response.data);
-      });
+    // console.log(form_data.get("hinhAnh"));
+    // axios({
+    //   url: "http://movie0706.cybersoft.edu.vn/api/quanlyphim/ThemPhimUploadHinh",
+    //   method: "POST",
+    //   data: form_data,
+    // })
+    //   .then((res) => {
+    //     console.log(res);
+    //   })
+    //   .catch((err) => {
+    //     console.log(err.response.data);
+    //   });
   };
   // componentDidMount() {
   //   this.props.dispatch({
