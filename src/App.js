@@ -9,8 +9,7 @@ import Login from "./Component/Login/Login";
 import { createBrowserHistory } from "history";
 import Register from "./Component/Register/Register";
 import Profile from "./Component/Profile/Profile";
-import Admin from "./Component/Admin/Admin";
-import AdminF from "./Component/Admin/AdminF";
+
 import AdminB from "./Component/Admin/AdminB";
 
 export const history = createBrowserHistory();
@@ -18,7 +17,7 @@ function App() {
   return (
     <Router history={history}>
       <div className="App">
-        {/* <Loading /> */}
+        <Loading />
         <Switch>
           <Route exact path="/home" component={Home} />
           <HeaderTemplate exact path="/detail/:id" Component={Detail} />
@@ -26,9 +25,8 @@ function App() {
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
           <HeaderTemplate exact path="/profile" Component={Profile} />
-          <Route exact path="/admin" component={Admin} />
-          <Route exact path="/adminf" component={AdminF} />
-          <Route exact path="/adminb" component={AdminB} />
+
+          <Route exact path="/admin" component={AdminB} />
           <Route exact path="/" component={Home} />
         </Switch>
       </div>

@@ -1,0 +1,29 @@
+.admin .admin__logo {
+  display: block;
+}
+
+.admin .bg__admin {
+  width: 100wh;
+  height: 100vh;
+}
+
+.admin button {
+  font-size: 16px;
+  display: inline-block;
+  border-radius: 4px;
+  text-align: center;
+  background: 0 0;
+  padding: 7px 25px;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  margin-top: 25px;
+  margin-bottom: 20px;
+  background-color: #fb4226;
+  border: none;
+  color: #fff;
+}
+
+.admin .admin__info {
+  margin-top: 70px;
+}
+/*# sourceMappingURL=Admin.css.map */
