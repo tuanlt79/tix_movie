@@ -4,10 +4,10 @@
 
 .admin .bg__admin {
   width: 100wh;
-  height: 100vh;
+  height: 225vh;
 }
 
-.admin button {
+.admin .btn__submit {
   font-size: 16px;
   display: inline-block;
   border-radius: 4px;
@@ -25,5 +25,33 @@
 
 .admin .admin__info {
   margin-top: 70px;
+}
+
+.admin .admin__quanLy .btn__taoLichChieu, .admin .quanLy__user .btn__taoLichChieu {
+  background-color: #00ac4d;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  color: #ffff;
+  padding: 5px;
+}
+
+.admin .admin__quanLy .btn__edit, .admin .quanLy__user .btn__edit {
+  background-color: #b03550;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  color: #ffff;
+  padding: 5px;
+  margin: 0 10px;
+}
+
+.admin .admin__quanLy .btn__del, .admin .quanLy__user .btn__del {
+  background-color: #fb4226;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  color: #ffff;
+  padding: 5px;
 }
 /*# sourceMappingURL=Admin.css.map */

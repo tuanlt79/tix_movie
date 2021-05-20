@@ -1,5 +1,5 @@
 import axios from "axios";
-import { accessToken, domain, taiKhoan } from "../configs/setting";
+import { accessToken, domain, maNhom, taiKhoan } from "../configs/setting";
 import { history } from "../App.js";
 export const loginUserAction = (nguoiDung) => {
   return async (dispatch) => {
@@ -78,6 +78,21 @@ export const profileUser = (user) => {
   };
 };
 
+export const getInfoAllUser = () => {
+  return async (dispatch) => {
+    try {
+      let result = await axios({
+        url: `${domain}/api/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=${maNhom}`,
+        method: "GET",
+      });
+      dispatch({
+        type: "LAY_THONG_TIN_ALL_USER",
+        thongTinAllUser: result.data,
+      });
+    } catch {}
+  };
+};
+
 export const editUser = (user) => {
   return async (dispatch) => {
     try {
@@ -93,6 +108,23 @@ export const editUser = (user) => {
       });
     } catch (errors) {
       console.log(errors);
+    }
+  };
+};
+export const deleteUser = (taiKhoan, token) => {
+  return async () => {
+    try {
+      const result = await axios({
+        url: `${domain}/api/QuanLyNguoiDung/XoaNguoiDung?TaiKhoan=${taiKhoan}`,
+        method: "DELETE",
+        headers: {
+          Authorization: "Bearer  " + token,
+        },
+      });
+
+      alert("Xóa Thành Công");
+    } catch (err) {
+      alert(err.response?.data);
     }
   };
 };

@@ -8,7 +8,9 @@ import { Redirect } from "react-router";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { NavLink } from "react-router-dom";
-import { maNhom } from "../../configs/setting";
+import { domain, maNhom } from "../../configs/setting";
+import QuanLyPhim from "./QuanLyPhim";
+import QuanLyUser from "./QuanLyUser";
 export default function AdminB() {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -33,7 +35,7 @@ export default function AdminB() {
     }
     // console.log(form_data.get("hinhAnh"));
     axios({
-      url: "http://movie0706.cybersoft.edu.vn/api/quanlyphim/ThemPhimUploadHinh",
+      url: `${domain}/api/quanlyphim/ThemPhimUploadHinh`,
       method: "POST",
       data: form_data,
     })
@@ -52,65 +54,67 @@ export default function AdminB() {
         <div className="container-fluid">
           <div className="row">
             <div
-              className="col-3 bg__admin"
+              className="col-2 bg__admin"
               style={{ backgroundImage: `url(${bg2})` }}
             >
-              <NavLink to="/" className="admin__logo text-center">
-                <img src={logo} alt="" width="15%" className="mt-3" />
-              </NavLink>
-              <div
-                className="nav flex-column nav-pills mt-4"
-                id="v-pills-tab"
-                role="tablist"
-                aria-orientation="vertical"
-              >
-                <a
-                  className="nav-link active"
-                  id="v-pills-home-tab"
-                  data-toggle="pill"
-                  href="#v-pills-home"
-                  role="tab"
-                  aria-controls="v-pills-home"
-                  aria-selected="true"
+              <div className="position-fixed">
+                <NavLink to="/" className="admin__logo text-center">
+                  <img src={logo} alt="" width="30%" className="mt-3" />
+                </NavLink>
+                <div
+                  className="nav flex-column nav-pills mt-4"
+                  id="v-pills-tab"
+                  role="tablist"
+                  aria-orientation="vertical"
                 >
-                  Thêm Phim
-                </a>
-                <a
-                  className="nav-link"
-                  id="v-pills-profile-tab"
-                  data-toggle="pill"
-                  href="#v-pills-profile"
-                  role="tab"
-                  aria-controls="v-pills-profile"
-                  aria-selected="false"
-                >
-                  Profile
-                </a>
-                <a
-                  className="nav-link"
-                  id="v-pills-messages-tab"
-                  data-toggle="pill"
-                  href="#v-pills-messages"
-                  role="tab"
-                  aria-controls="v-pills-messages"
-                  aria-selected="false"
-                >
-                  Messages
-                </a>
-                <a
-                  className="nav-link"
-                  id="v-pills-settings-tab"
-                  data-toggle="pill"
-                  href="#v-pills-settings"
-                  role="tab"
-                  aria-controls="v-pills-settings"
-                  aria-selected="false"
-                >
-                  Settings
-                </a>
+                  <a
+                    className="nav-link active"
+                    id="v-pills-home-tab"
+                    data-toggle="pill"
+                    href="#v-pills-home"
+                    role="tab"
+                    aria-controls="v-pills-home"
+                    aria-selected="true"
+                  >
+                    Thêm Phim
+                  </a>
+                  <a
+                    className="nav-link"
+                    id="v-pills-profile-tab"
+                    data-toggle="pill"
+                    href="#v-pills-profile"
+                    role="tab"
+                    aria-controls="v-pills-profile"
+                    aria-selected="false"
+                  >
+                    Quản Lý Phim
+                  </a>
+                  <a
+                    className="nav-link"
+                    id="v-pills-messages-tab"
+                    data-toggle="pill"
+                    href="#v-pills-messages"
+                    role="tab"
+                    aria-controls="v-pills-messages"
+                    aria-selected="false"
+                  >
+                    Quản Lý Người Dung
+                  </a>
+                  <a
+                    className="nav-link"
+                    id="v-pills-settings-tab"
+                    data-toggle="pill"
+                    href="#v-pills-settings"
+                    role="tab"
+                    aria-controls="v-pills-settings"
+                    aria-selected="false"
+                  >
+                    Settings
+                  </a>
+                </div>
               </div>
             </div>
-            <div className="col-9 admin__info">
+            <div className="col-10 admin__info">
               <div className="tab-content" id="v-pills-tabContent">
                 <div
                   className="tab-pane fade show active"
@@ -121,7 +125,6 @@ export default function AdminB() {
                   <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="row">
                       <div className="col-6">
-                        {" "}
                         <div className="form-group">
                           <span>Mã Phim</span>
                           <input
@@ -293,24 +296,26 @@ export default function AdminB() {
                       )}
                     </div>
 
-                    <button type="submit">Thêm Phim</button>
+                    <button className="btn__submit" type="submit">
+                      Thêm Phim
+                    </button>
                   </form>
                 </div>
                 <div
-                  className="tab-pane fade"
+                  className="tab-pane fade admin__quanLy"
                   id="v-pills-profile"
                   role="tabpanel"
                   aria-labelledby="v-pills-profile-tab"
                 >
-                  ...
+                  <QuanLyPhim />
                 </div>
                 <div
-                  className="tab-pane fade"
+                  className="tab-pane fade quanLy__user"
                   id="v-pills-messages"
                   role="tabpanel"
                   aria-labelledby="v-pills-messages-tab"
                 >
-                  ...
+                  <QuanLyUser />
                 </div>
                 <div
                   className="tab-pane fade"

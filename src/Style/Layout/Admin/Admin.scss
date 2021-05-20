@@ -4,9 +4,9 @@
   }
   .bg__admin {
     width: 100wh;
-    height: 100vh;
+    height: 225vh;
   }
-  button {
+  .btn__submit {
     font-size: 16px;
     display: inline-block;
     border-radius: 4px;
@@ -22,5 +22,35 @@
   }
   .admin__info {
     margin-top: 70px;
+  }
+  .admin__quanLy {
+    .btn__taoLichChieu {
+      background-color: #00ac4d;
+      border-radius: 5px;
+      outline: none;
+      border: none;
+      color: #ffff;
+      padding: 5px;
+    }
+    .btn__edit {
+      background-color: #b03550;
+      border-radius: 5px;
+      outline: none;
+      border: none;
+      color: #ffff;
+      padding: 5px;
+      margin: 0 10px;
+    }
+    .btn__del {
+      background-color: #fb4226;
+      border-radius: 5px;
+      outline: none;
+      border: none;
+      color: #ffff;
+      padding: 5px;
+    }
+  }
+  .quanLy__user {
+    @extend .admin__quanLy;
   }
 }
