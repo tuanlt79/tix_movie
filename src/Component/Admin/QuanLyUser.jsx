@@ -16,10 +16,6 @@ export default function QuanLyUser() {
 
   const danhSachUser = () => {
     return thongTinAllUser?.map((item, index) => {
-      let nguoiDung = thongTinAllUser.findIndex(
-        (user) => user.taiKhoan === item.taiKhoan
-      );
-
       // console.log(nguoiDung);
       return (
         <tr key={index}>
@@ -35,7 +31,6 @@ export default function QuanLyUser() {
               className="btn__del"
               onClick={() => {
                 dispatch(deleteUser(item.taiKhoan, accessToken));
-                console.log(item.taiKhoan);
               }}
             >
               Xóa

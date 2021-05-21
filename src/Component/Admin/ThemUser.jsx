@@ -13,9 +13,7 @@ export default function ThemUser() {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => {
-    console.log(data);
-  };
+  const onSubmit = (data) => console.log(data);
 
   return (
     <Fragment>
@@ -115,13 +113,13 @@ export default function ThemUser() {
             </div>
             <div className="form-group">
               <span>Mã Loại Người Dùng</span>
-              <Select
+              {/* <Select
                 name="maLoaiNguoiDung"
                 {...register("maLoaiNguoiDung", {
                   required: true,
                 })}
                 options={["KhachHang", "QuanTri"]}
-              />
+              /> */}
 
               {errors?.maLoaiNguoiDung?.type === "required" && (
                 <p className="alert alert-danger">Không được để trống</p>
