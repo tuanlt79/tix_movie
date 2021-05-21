@@ -98,7 +98,7 @@ export default function AdminB() {
                     aria-controls="v-pills-messages"
                     aria-selected="false"
                   >
-                    Quản Lý Người Dung
+                    Quản Lý Người dùng
                   </a>
                   <a
                     className="nav-link"
@@ -302,7 +302,7 @@ export default function AdminB() {
                   </form>
                 </div>
                 <div
-                  className="tab-pane fade admin__quanLy"
+                  className="tab-pane fade admin__quanLy active"
                   id="v-pills-profile"
                   role="tabpanel"
                   aria-labelledby="v-pills-profile-tab"

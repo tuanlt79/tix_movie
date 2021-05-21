@@ -117,12 +117,17 @@ export const deleteUser = (taiKhoan, token) => {
       const result = await axios({
         url: `${domain}/api/QuanLyNguoiDung/XoaNguoiDung?TaiKhoan=${taiKhoan}`,
         method: "DELETE",
+        data: taiKhoan,
         headers: {
           Authorization: "Bearer  " + token,
         },
       });
 
-      alert("Xóa Thành Công");
+      if (result.status === 200) {
+        alert("Xóa Thành Công");
+
+        window.location.reload();
+      }
     } catch (err) {
       alert(err.response?.data);
     }

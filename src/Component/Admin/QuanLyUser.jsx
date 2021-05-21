@@ -13,13 +13,14 @@ export default function QuanLyUser() {
   useEffect(() => {
     dispatch(getInfoAllUser());
   }, []);
-  console.log(thongTinAllUser.taiKhoan);
+
   const danhSachUser = () => {
     return thongTinAllUser?.map((item, index) => {
       let nguoiDung = thongTinAllUser.findIndex(
         (user) => user.taiKhoan === item.taiKhoan
       );
-      //   console.log(nguoiDung);
+
+      // console.log(nguoiDung);
       return (
         <tr key={index}>
           <th scope="row">{item.taiKhoan}</th>
@@ -33,7 +34,8 @@ export default function QuanLyUser() {
             <button
               className="btn__del"
               onClick={() => {
-                dispatch(deleteUser(nguoiDung, accessToken));
+                dispatch(deleteUser(item.taiKhoan, accessToken));
+                console.log(item.taiKhoan);
               }}
             >
               Xóa
