@@ -11,6 +11,7 @@ import { NavLink } from "react-router-dom";
 import { domain, maNhom } from "../../configs/setting";
 import QuanLyPhim from "./QuanLyPhim";
 import QuanLyUser from "./QuanLyUser";
+import ThemUser from "./ThemUser";
 export default function AdminB() {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -109,7 +110,7 @@ export default function AdminB() {
                     aria-controls="v-pills-settings"
                     aria-selected="false"
                   >
-                    Settings
+                    Thêm Người Dùng
                   </a>
                 </div>
               </div>
@@ -201,7 +202,6 @@ export default function AdminB() {
                         </div>
                       </div>
                       <div className="col-6">
-                        {" "}
                         <div className="form-group">
                           <span>Hình Ảnh</span>
                           <input
@@ -323,7 +323,7 @@ export default function AdminB() {
                   role="tabpanel"
                   aria-labelledby="v-pills-settings-tab"
                 >
-                  ...
+                  <ThemUser />
                 </div>
               </div>
             </div>
