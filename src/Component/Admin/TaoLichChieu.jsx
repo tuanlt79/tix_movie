@@ -3,14 +3,13 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { taoLichChieuAction } from "../../Action/PhimAction";
-
 import "antd/dist/antd.css";
 import { DatePicker, Space } from "antd";
 
 export default function TaoLichChieu() {
   const { accessToken } = useSelector((state) => state.UserReducer);
   const dispatch = useDispatch();
-  const [startDate, setStartDate] = useState(new Date());
+
   const {
     register,
     handleSubmit,
