@@ -3,24 +3,23 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { taoLichChieuAction } from "../../Action/PhimAction";
-// import { DatePicker } from "antd";
-import DatePicker from "react-datepicker";
 
-import "react-datepicker/dist/react-datepicker.css";
+import "antd/dist/antd.css";
+import { DatePicker, Space } from "antd";
 
 export default function TaoLichChieu() {
-  const [startDate, setStartDate] = useState(new Date());
   const { accessToken } = useSelector((state) => state.UserReducer);
   const dispatch = useDispatch();
+  const [startDate, setStartDate] = useState(new Date());
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const date_format = "dd/MM/yyyy";
+
   const onSubmit = (data) => {
     console.log(data);
-    // dispatch(taoLichChieuAction(data, accessToken));
+    dispatch(taoLichChieuAction(data, accessToken));
   };
   return (
     <div className="d-inline-block">
@@ -70,17 +69,12 @@ export default function TaoLichChieu() {
                       />
                     </div>
                     <div className="form-group">
-                      <span>Ngày Chiếu</span>
-                      <input type="date" {...register("ngayChieuGioChieu")} />
-                      {/* 
-                      <DatePicker
-                        isClearable
-                        placeholderText="Vui lòng chọn ngày !"
-                        dateFormat={date_format}
-                        selected={startDate}
-                        onChange={(date) => setStartDate(date)}
-                        // {...register("ngayChieuGioChieu")}
-                      /> */}
+                      <span>Giá vé</span>
+                      <input
+                        type="text"
+                        {...register("giaVe")}
+                        className="form-control"
+                      />
                     </div>
                   </div>
                   <div className="col-6">
@@ -92,13 +86,16 @@ export default function TaoLichChieu() {
                         className="form-control"
                       />
                     </div>
+
                     <div className="form-group">
-                      <span>Giá vé</span>
-                      <input
-                        type="text"
-                        {...register("giaVe")}
-                        className="form-control"
-                      />
+                      <span className="mr-2">Ngày Chiếu</span>
+
+                      <Space direction="vertical">
+                        <DatePicker
+                          {...register("ngayChieuGioChieu")}
+                          format="DD/MM/YYYY"
+                        />
+                      </Space>
                     </div>
                   </div>
                 </div>
