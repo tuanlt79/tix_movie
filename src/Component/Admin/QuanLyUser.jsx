@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Fragment } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteUser, getInfoAllUser } from "../../Action/UserAction";
-import { accessToken } from "../../configs/setting";
+import EditUser from "./EditUser";
 
 export default function QuanLyUser() {
   const dispatch = useDispatch();
@@ -26,7 +26,8 @@ export default function QuanLyUser() {
           <td>{item.matKhau}</td>
           <td>{item.maLoaiNguoiDung}</td>
           <td>
-            <button className="btn__edit">Sửa</button>
+            {/* <button className="btn__edit">Sửa</button> */}
+            <EditUser />
             <button
               className="btn__del"
               onClick={() => {
@@ -40,7 +41,7 @@ export default function QuanLyUser() {
       );
     });
   };
-  console.log(thongTinAllUser);
+  // console.log(thongTinAllUser);
   return (
     <Fragment>
       <table className="table table-striped">

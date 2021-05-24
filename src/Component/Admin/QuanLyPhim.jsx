@@ -2,14 +2,21 @@ import moment from "moment";
 import React, { Fragment } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { layDanhSachPhimAction } from "../../Action/PhimAction";
+import { deleteFilm, layDanhSachPhimAction } from "../../Action/PhimAction";
+import EditFilm from "./EditFilm";
+import TaoLichChieu from "./TaoLichChieu";
 
 export default function QuanLyPhim() {
   const dispatch = useDispatch();
   const { mangPhim } = useSelector((state) => state.PhimReducer);
+  const { accessToken } = useSelector((state) => state.UserReducer);
+
   useEffect(() => {
     dispatch(layDanhSachPhimAction());
   }, []);
+
+  // console.log({ mangPhim });
+
   const danhSachPhim = () => {
     return mangPhim?.map((item, index) => {
       return (
@@ -21,9 +28,17 @@ export default function QuanLyPhim() {
           </td>
           <td>{moment(item.ngayKhoiChieu).format("ddd-mm-yyyy hh:mm A")}</td>
           <td>
-            <button className="btn__taoLichChieu">Tạo Lịch Chiếu</button>
-            <button className="btn__edit">Sửa</button>
-            <button className="btn__del">Xóa</button>
+            <TaoLichChieu />
+            {/* <button className="btn__edit">Sửa</button> */}
+            <EditFilm />
+            <button
+              className="btn__del"
+              onClick={() => {
+                dispatch(deleteFilm(item.maPhim, accessToken));
+              }}
+            >
+              Xóa
+            </button>
           </td>
         </tr>
       );

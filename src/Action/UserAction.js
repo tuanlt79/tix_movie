@@ -21,7 +21,7 @@ export const loginUserAction = (nguoiDung) => {
         taiKhoan: result.data.taiKhoan,
       });
     } catch (errors) {
-      console.log(errors);
+      alert(errors.response?.data);
     }
   };
 };
@@ -45,7 +45,9 @@ export const addUserAction = (user) => {
         type: "DANG_KY",
         taiKhoan: result.data.taiKhoan,
       });
-    } catch (errors) {}
+    } catch (errors) {
+      alert(errors.response?.data);
+    }
   };
 };
 
@@ -71,7 +73,7 @@ export const profileUser = (user) => {
           thongTinUser: result.data,
         });
       } catch (errors) {
-        console.log(errors);
+        alert(errors.response?.data);
       }
       dispatch({ type: "closeLoading" });
     }, 700);
@@ -89,28 +91,12 @@ export const getInfoAllUser = () => {
         type: "LAY_THONG_TIN_ALL_USER",
         thongTinAllUser: result.data,
       });
-    } catch {}
-  };
-};
-
-export const editUser = (user) => {
-  return async (dispatch) => {
-    try {
-      let result = await axios({
-        url: `${domain}/api/QuanLyNguoiDung/CapNhatThongTinNguoiDung`,
-        method: "PUT",
-        data: user,
-      });
-
-      dispatch({
-        type: "EDIT_USER",
-        taiKhoan: result.data.taiKhoan,
-      });
     } catch (errors) {
-      console.log(errors);
+      alert(errors.response?.data);
     }
   };
 };
+
 export const deleteUser = (taiKhoan, token) => {
   return async () => {
     try {
@@ -130,6 +116,44 @@ export const deleteUser = (taiKhoan, token) => {
       }
     } catch (err) {
       alert(err.response?.data);
+    }
+  };
+};
+
+export const addUser = (value, token) => {
+  return async () => {
+    try {
+      const result = await axios({
+        url: `${domain}/api/QuanLyNguoiDung/ThemNguoiDung`,
+        method: "POST",
+        data: value,
+        headers: { Authorization: "Bearer " + token },
+      });
+      window.location.reload();
+      if (result.status === 200) {
+        alert("Tạo Tài Khoản Thành Công");
+      }
+    } catch (err) {
+      alert(err.response?.data);
+    }
+  };
+};
+
+export const editUser = (value, token) => {
+  return async (dispatch) => {
+    try {
+      let result = await axios({
+        url: `${domain}/api/QuanLyNguoiDung/CapNhatThongTinNguoiDung`,
+        method: "PUT",
+        data: value,
+        headers: { Authorization: "Bearer " + token },
+      });
+
+      if (result.status === 200) {
+        alert("Cập nhật thành công");
+      }
+    } catch (errors) {
+      alert(errors.response?.data);
     }
   };
 };

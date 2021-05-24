@@ -44,7 +44,7 @@ export default function Register() {
         hoTen: yup.string().required("Họ Tên không được bỏ trống !"),
       }),
       onSubmit: (values) => {
-        values.maNhom = "GP02";
+        values.maNhom = "GP06";
         values.maLoaiNguoiDung = "KhachHang";
         dispatch(addUserAction(values));
         // console.log(values);

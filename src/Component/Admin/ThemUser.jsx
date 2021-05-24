@@ -1,19 +1,23 @@
 import React from "react";
 import { Fragment } from "react";
 import { useForm } from "react-hook-form";
-import { useDispatch } from "react-redux";
-import { Select } from "../../configs/FunctionUseForm";
+import { useDispatch, useSelector } from "react-redux";
+import { addUser } from "../../Action/UserAction";
 import { maNhom } from "../../configs/setting";
 
 export default function ThemUser() {
   const dispatch = useDispatch();
+  const { accessToken } = useSelector((state) => state.UserReducer);
 
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    console.log({ accessToken });
+    dispatch(addUser(data, accessToken));
+  };
 
   return (
     <Fragment>
@@ -76,6 +80,9 @@ export default function ThemUser() {
                 <p className="alert alert-danger">Email không hợp lệ</p>
               )}
             </div>
+          </div>
+
+          <div className="col-6">
             <div className="form-group">
               <span>Họ Tên</span>
               <input
@@ -95,8 +102,6 @@ export default function ThemUser() {
                 <p className="alert alert-danger">Họ Tên phải nhập chữ</p>
               )}
             </div>
-          </div>
-          <div className="col-6">
             <div className="form-group">
               <span>Mã Nhóm</span>
               <input
@@ -112,14 +117,16 @@ export default function ThemUser() {
               )}
             </div>
             <div className="form-group">
-              <span>Mã Loại Người Dùng</span>
-              {/* <Select
+              <span className="mr-2">Mã Loại Người Dùng</span>
+              <select
                 name="maLoaiNguoiDung"
                 {...register("maLoaiNguoiDung", {
                   required: true,
                 })}
-                options={["KhachHang", "QuanTri"]}
-              /> */}
+              >
+                <option value="QuanTri">Quản Trị</option>
+                <option value="KhachHang">Khách Hàng</option>
+              </select>
 
               {errors?.maLoaiNguoiDung?.type === "required" && (
                 <p className="alert alert-danger">Không được để trống</p>

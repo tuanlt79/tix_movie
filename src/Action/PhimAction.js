@@ -15,7 +15,9 @@ export const layDanhSachPhimAction = () => {
           type: "LAY_DANH_SACH_PHIM",
           mangPhim: result.data,
         });
-      } catch {}
+      } catch (errors) {
+        alert(errors.response?.data);
+      }
       dispatch({
         type: "closeLoading",
       });
@@ -34,7 +36,9 @@ export const thongTinHeThongRapAction = () => {
         type: "LAY_THONG_TIN_RAP",
         cumRap: result.data,
       });
-    } catch (errors) {}
+    } catch (errors) {
+      alert(errors.response?.data);
+    }
   };
 };
 //API 3
@@ -49,7 +53,9 @@ export const layThongTinHeThongCumRapAction = () => {
         type: "LAY_CHI_TIET_RAP",
         chiTietCumRap: result.data,
       });
-    } catch (errors) {}
+    } catch (errors) {
+      alert(errors.response?.data);
+    }
   };
 };
 //API 4
@@ -67,7 +73,7 @@ export const layChiTietPhimAction = (maPhim) => {
           chiTietPhim: result.data,
         });
       } catch (errors) {
-        console.log(errors);
+        alert(errors.response?.data);
       }
       dispatch({
         type: "closeLoading",
@@ -90,7 +96,7 @@ export const layThongTinPhongVeAction = (maLichChieu) => {
           thongTinPhongVe: result.data,
         });
       } catch (errors) {
-        console.log(errors);
+        alert(errors.response?.data);
       }
       dispatch({
         type: "closeLoading",
@@ -123,3 +129,42 @@ export const layThongTinPhongVeAction = (maLichChieu) => {
 //     }, 700);
 //   };
 // };
+
+export const deleteFilm = (maPhim, token) => {
+  return async (dispatch) => {
+    try {
+      let result = await axios({
+        url: `${domain}/api/QuanLyPhim/XoaPhim?MaPhim=${maPhim}`,
+        method: "DELETE",
+        data: maPhim,
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      });
+      if (result.status === 200) {
+        alert("Xoá Phim Thành Công");
+        window.location.reload();
+      }
+    } catch (err) {
+      alert(err.response?.data);
+    }
+  };
+};
+export const taoLichChieuAction = (value, token) => {
+  // console.log({ value });
+  return async (dispatch) => {
+    try {
+      let result = await axios({
+        url: `${domain}/api/QuanLyDatVe/TaoLichChieu`,
+        method: "POST",
+        data: value,
+        headers: { Authorization: "Bearer " + token },
+      });
+      if (result.status === 200) {
+        alert("Tạo lịch chiếu thành công.");
+      }
+    } catch (err) {
+      alert(err.response?.data);
+    }
+  };
+};

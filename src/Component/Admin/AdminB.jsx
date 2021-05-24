@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import bg2 from "../../Assets/img/bg2.jpg";
 import logo from "../../Assets/img/web-logo.png";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar } from "@fortawesome/free-solid-svg-icons";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch } from "react-redux";
 import { Redirect } from "react-router";
 import { useForm } from "react-hook-form";
@@ -202,6 +202,7 @@ export default function AdminB() {
                         </div>
                       </div>
                       <div className="col-6">
+                        {" "}
                         <div className="form-group">
                           <span>Hình Ảnh</span>
                           <input

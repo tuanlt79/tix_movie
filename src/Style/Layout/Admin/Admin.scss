@@ -1,4 +1,7 @@
 .admin {
+  button {
+    outline: none;
+  }
   .admin__logo {
     display: block;
   }
@@ -52,5 +55,8 @@
   }
   .quanLy__user {
     @extend .admin__quanLy;
+  }
+  .modal-dialog {
+    max-width: 1000px !important;
   }
 }
