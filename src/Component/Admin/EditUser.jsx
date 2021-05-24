@@ -1,10 +1,15 @@
 import React, { Fragment } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
+import { maNhom } from "../../configs/setting";
 
 export default function EditUser() {
   const { accessToken } = useSelector((state) => state.UserReducer);
   const dispatch = useDispatch();
+  const thongTinAllUser = useSelector(
+    (state) => state.UserReducer.thongTinAllUser
+  );
+
   const {
     register,
     handleSubmit,
@@ -16,29 +21,28 @@ export default function EditUser() {
   };
   return (
     <div className="d-inline-block">
-      {/* Button trigger modal */}
       <button
         type="button"
         className="btn__edit"
         data-toggle="modal"
-        data-target="#exampleModalCenter"
+        data-target="#exampleModal"
       >
         Sửa
       </button>
       {/* Modal */}
       <div
         className="modal fade"
-        id="exampleModalCenter"
+        id="exampleModal"
         tabIndex={-1}
         role="dialog"
-        aria-labelledby="exampleModalCenterTitle"
+        aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
-        <div className="modal-dialog modal-dialog-centered" role="document">
+        <div className="modal-dialog" role="document">
           <div className="modal-content">
             <div className="modal-header">
-              <h5 className="modal-title" id="exampleModalLongTitle">
-                Modal title
+              <h5 className="modal-title" id="exampleModalLabel">
+                Nhập Thông Tin Cập Nhật
               </h5>
               <button
                 type="button"
@@ -49,17 +53,174 @@ export default function EditUser() {
                 <span aria-hidden="true">×</span>
               </button>
             </div>
-            <div className="modal-body">...</div>
+            <div className="modal-body">
+              <form onSubmit={handleSubmit(onSubmit)}>
+                <div className="row">
+                  <div className="col-6">
+                    <div className="form-group">
+                      <span>Tài Khoản</span>
+                      <input
+                        placeholder="Nhập Tài Khoản"
+                        type="text"
+                        {...register("taiKhoan", {
+                          required: true,
+                          maxLength: 30,
+                        })}
+                        className="form-control"
+                      />
+                      {errors?.taiKhoan?.type === "required" && (
+                        <p className="alert alert-danger">
+                          Không được để trống
+                        </p>
+                      )}{" "}
+                      {errors?.taiKhoan?.type === "maxLength" && (
+                        <p className="alert alert-danger">
+                          Tài Khoản dưới 30 ký tự
+                        </p>
+                      )}
+                    </div>
+                    <div className="form-group">
+                      <span>Mật Khẩu</span>
+                      <input
+                        type="password"
+                        placeholder="Nhập Mật Khẩu"
+                        {...register("matKhau", {
+                          required: true,
+                          maxLength: 30,
+                        })}
+                        className="form-control"
+                      />
+                      {errors?.matKhau?.type === "required" && (
+                        <p className="alert alert-danger">
+                          Không được để trống
+                        </p>
+                      )}
+                      {errors?.matKhau?.type === "maxLength" && (
+                        <p className="alert alert-danger">
+                          Mã Khẩu dưới 30 ký tự
+                        </p>
+                      )}
+                    </div>
+
+                    <div className="form-group">
+                      <span>Email</span>
+                      <input
+                        type="text"
+                        placeholder="Nhập Email"
+                        {...register("email", {
+                          required: true,
+                          pattern:
+                            /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                        })}
+                        className="form-control"
+                      />
+                      {errors?.email?.type === "required" && (
+                        <p className="alert alert-danger">
+                          Không được để trống
+                        </p>
+                      )}
+                      {errors?.email?.type === "pattern" && (
+                        <p className="alert alert-danger">Email không hợp lệ</p>
+                      )}
+                    </div>
+                  </div>
+
+                  <div className="col-6">
+                    <div className="form-group">
+                      <span>Họ Tên</span>
+                      <input
+                        type="text"
+                        placeholder="Nhập Họ Tên"
+                        {...register("hoTen", {
+                          required: true,
+                          pattern:
+                            /^[a-zA-Z_ÀÁÂÃÈÉÊẾÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶ" +"ẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợ" +"ụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\\s]+$/,
+                        })}
+                        className="form-control"
+                      />
+                      {errors?.hoTen?.type === "required" && (
+                        <p className="alert alert-danger">
+                          Không được để trống
+                        </p>
+                      )}
+                      {errors?.hoTen?.type === "pattern" && (
+                        <p className="alert alert-danger">
+                          Họ Tên phải nhập chữ
+                        </p>
+                      )}
+                    </div>
+                    <div className="form-group">
+                      <span>Mã Nhóm</span>
+                      <input
+                        type="text"
+                        value={maNhom}
+                        {...register("maNhom", {
+                          required: true,
+                        })}
+                        className="form-control"
+                      />
+                      {errors?.maNhom?.type === "required" && (
+                        <p className="alert alert-danger">
+                          Không được để trống
+                        </p>
+                      )}
+                    </div>
+                    <div className="form-group">
+                      <span className="mr-2">Mã Loại Người Dùng</span>
+                      <select
+                        name="maLoaiNguoiDung"
+                        {...register("maLoaiNguoiDung", {
+                          required: true,
+                        })}
+                      >
+                        <option value="QuanTri">Quản Trị</option>
+                        <option value="KhachHang">Khách Hàng</option>
+                      </select>
+
+                      {errors?.maLoaiNguoiDung?.type === "required" && (
+                        <p className="alert alert-danger">
+                          Không được để trống
+                        </p>
+                      )}
+                    </div>
+                    <div className="form-group">
+                      <span>Số Điện Thoại</span>
+                      <input
+                        placeholder="Nhập số điện thoại"
+                        type="text"
+                        {...register("soDt", {
+                          required: true,
+                          pattern: /(03|05|07|08|09|01[2|6|8|9])+([0-9]{8})\b/,
+                        })}
+                        className="form-control"
+                      />
+                      {errors?.soDt?.type === "required" && (
+                        <p className="alert alert-danger">
+                          Không được để trống
+                        </p>
+                      )}
+                      {errors?.soDt?.type === "pattern" && (
+                        <p className="alert alert-danger">SDT không hợp lệ</p>
+                      )}
+                    </div>
+                  </div>
+                </div>
+
+                <button className="btn__submit" type="submit">
+                  Thêm Người Dùng
+                </button>
+              </form>
+            </div>
             <div className="modal-footer">
               <button
                 type="button"
                 className="btn btn-secondary"
                 data-dismiss="modal"
               >
-                Close
+                Thoát
               </button>
-              <button type="button" className="btn btn-primary">
-                Save changes
+              <button type="button" className="btn btn-success">
+                Cập Nhật
               </button>
             </div>
           </div>
