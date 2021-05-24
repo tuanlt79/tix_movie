@@ -1,11 +1,10 @@
-import moment from "moment";
-import React, { useState } from "react";
-import { useForm } from "react-hook-form";
+import React from "react";
+import { useForm, Controller } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { taoLichChieuAction } from "../../Action/PhimAction";
-import "antd/dist/antd.css";
-import { DatePicker, Space } from "antd";
-
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import moment, { months } from "moment";
 export default function TaoLichChieu() {
   const { accessToken } = useSelector((state) => state.UserReducer);
   const dispatch = useDispatch();
@@ -14,10 +13,11 @@ export default function TaoLichChieu() {
     register,
     handleSubmit,
     formState: { errors },
+    control,
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
+    console.log(moment(data.ngayChieuGioChieu).format("DD/MM/YYYY"));
     dispatch(taoLichChieuAction(data, accessToken));
   };
   return (
@@ -89,12 +89,20 @@ export default function TaoLichChieu() {
                     <div className="form-group">
                       <span className="mr-2">Ngày Chiếu</span>
 
-                      <Space direction="vertical">
-                        <DatePicker
-                          {...register("ngayChieuGioChieu")}
-                          format="DD/MM/YYYY"
-                        />
-                      </Space>
+                      <Controller
+                        name="ngayChieuGioChieu"
+                        control={control}
+                        defaultValue={null}
+                        render={({ field }) => (
+                          <DatePicker
+                            onChange={(e) => field.onChange(e)}
+                            selected={field.value}
+                            placeholderText="Vui lòng chọn"
+                            dateFormat="dd/MM/yyyy"
+                            isClearable
+                          />
+                        )}
+                      />
                     </div>
                   </div>
                 </div>

@@ -50,6 +50,7 @@
     "lity": "^2.4.1",
     "moment": "^2.29.1",
     "node-sass": "^5.0.0",
+    "react-datepicker": "^3.8.0",
     "react-redux": "^7.2.3",
     "react-router-dom": "^5.2.0",
     "react-scroll-to-bottom": "^4.1.0",
