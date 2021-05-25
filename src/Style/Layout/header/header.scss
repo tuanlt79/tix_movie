@@ -15,6 +15,13 @@ header {
     }
     .collapse {
       .btnLogin {
+        margin-right: 100px;
+        cursor: pointer;
+        .dropdown-item.active,
+        .dropdown-item:active {
+          color: $cPrimary;
+          background-color: $primary;
+        }
         .imgLogin {
           background-image: url("../../../Assets/img/avatar.png");
           @include BGI(center, cover, 30px, 30px);

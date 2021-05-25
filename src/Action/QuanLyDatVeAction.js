@@ -15,7 +15,7 @@ export const datVeAction = (thongTinDatVe) => {
       });
       if (result.status === 200) {
         alert("Đặt Vé Thành Công ! ");
-        history.push(`/checkout/${thongTinDatVe.maLichChieu}`);
+        history.push(`/profile`);
         dispatch(layThongTinPhongVeAction(thongTinDatVe.maLichChieu));
       }
     } catch (errors) {}

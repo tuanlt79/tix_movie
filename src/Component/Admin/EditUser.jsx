@@ -1,7 +1,8 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import { maNhom } from "../../configs/setting";
+import { editUser } from "../../Action/UserAction";
 
 export default function EditUser() {
   const { accessToken } = useSelector((state) => state.UserReducer);
@@ -9,7 +10,8 @@ export default function EditUser() {
   const thongTinAllUser = useSelector(
     (state) => state.UserReducer.thongTinAllUser
   );
-
+  // console.log({ thongTinAllUser });
+  // console.log(thongTinAllUser?.map((item, index) => item.taiKhoan));
   const {
     register,
     handleSubmit,
@@ -18,6 +20,7 @@ export default function EditUser() {
 
   const onSubmit = (data) => {
     console.log(data);
+    // dispatch(editUser(data, accessToken));
   };
   return (
     <div className="d-inline-block">
@@ -53,13 +56,14 @@ export default function EditUser() {
                 <span aria-hidden="true">×</span>
               </button>
             </div>
-            <div className="modal-body">
-              <form onSubmit={handleSubmit(onSubmit)}>
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <div className="modal-body">
                 <div className="row">
                   <div className="col-6">
                     <div className="form-group">
                       <span>Tài Khoản</span>
                       <input
+                        // value=
                         placeholder="Nhập Tài Khoản"
                         type="text"
                         {...register("taiKhoan", {
@@ -72,7 +76,7 @@ export default function EditUser() {
                         <p className="alert alert-danger">
                           Không được để trống
                         </p>
-                      )}{" "}
+                      )}
                       {errors?.taiKhoan?.type === "maxLength" && (
                         <p className="alert alert-danger">
                           Tài Khoản dưới 30 ký tự
@@ -205,24 +209,20 @@ export default function EditUser() {
                     </div>
                   </div>
                 </div>
-
-                <button className="btn__submit" type="submit">
-                  Thêm Người Dùng
+              </div>
+              <div className="modal-footer">
+                <button
+                  type="button"
+                  className="btn btn-secondary"
+                  data-dismiss="modal"
+                >
+                  Thoát
                 </button>
-              </form>
-            </div>
-            <div className="modal-footer">
-              <button
-                type="button"
-                className="btn btn-secondary"
-                data-dismiss="modal"
-              >
-                Thoát
-              </button>
-              <button type="button" className="btn btn-success">
-                Cập Nhật
-              </button>
-            </div>
+                <button type="submit" className="btn btn-success">
+                  Cập Nhật
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       </div>

@@ -45,7 +45,48 @@ export default function Header() {
                 </a>
               </li>
             </ul>
+
             {taiKhoan !== "" ? (
+              <div className="nav-item dropdown btnLogin">
+                <div
+                  className="nav-link dropdown-toggle header__user"
+                  id="navbarDropdown"
+                  role="button"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <img className="imgLogin" alt="" />
+                  {taiKhoan}
+                </div>
+                <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <NavLink className="dropdown-item" to="/profile">
+                    Thông Tin Tài Khoản
+                  </NavLink>
+
+                  <div className="dropdown-divider" />
+                  <a className="dropdown-item" href="#">
+                    <button
+                      className="btn__Logout"
+                      onClick={() => {
+                        dispatch({
+                          type: "DANG_XUAT",
+                        });
+                      }}
+                    >
+                      Đăng Xuất
+                    </button>
+                  </a>
+                </div>
+              </div>
+            ) : (
+              <NavLink className="btnLogin" to="/login">
+                <img className="imgLogin" alt="" />
+                Đăng Nhập
+              </NavLink>
+            )}
+
+            {/* {taiKhoan !== "" ? (
               <span className="btnLogin ">
                 <NavLink to="/profile" className="header__user">
                   <img className="imgLogin" alt="" />
@@ -67,7 +108,7 @@ export default function Header() {
                 <img className="imgLogin" alt="" />
                 Đăng Nhập
               </NavLink>
-            )}
+            )} */}
           </div>
         </nav>
       </div>

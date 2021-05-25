@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { taoLichChieuAction } from "../../Action/PhimAction";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import moment, { months } from "moment";
+import moment from "moment";
 export default function TaoLichChieu() {
   const { accessToken } = useSelector((state) => state.UserReducer);
   const dispatch = useDispatch();

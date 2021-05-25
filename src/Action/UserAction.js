@@ -151,6 +151,7 @@ export const editUser = (value, token) => {
 
       if (result.status === 200) {
         alert("Cập nhật thành công");
+        window.location.reload();
       }
     } catch (errors) {
       alert(errors.response?.data);

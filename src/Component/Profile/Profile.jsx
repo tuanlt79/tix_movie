@@ -191,13 +191,13 @@ export default function Profile() {
                     <div className="input-group mb-3">
                       <div className="input-group-prepend">
                         <span className="input-group-text" id="basic-addon1">
-                          Đổi Mật Khẩu
+                          Mật Khẩu
                         </span>
                       </div>
                       <input
                         type="password"
                         className="form-control"
-                        value="Nhập Mật Khẩu Mới"
+                        value="Mật Khẩu"
                         aria-describedby="basic-addon1"
                         name="matKhau"
                         onChange={handleChange}
@@ -207,7 +207,7 @@ export default function Profile() {
                 </div>
 
                 <div className="text-center">
-                  <button type="submit">Cập Nhật </button>
+                  {/* <button type="submit">Cập Nhật </button> */}
                 </div>
               </form>
             </div>

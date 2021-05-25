@@ -80,6 +80,18 @@ export default function ThemUser() {
                 <p className="alert alert-danger">Email không hợp lệ</p>
               )}
             </div>
+            <div className="form-group">
+              <span className="mr-2">Mã Loại Người Dùng</span>
+              <select
+                name="maLoaiNguoiDung"
+                {...register("maLoaiNguoiDung", {
+                  required: true,
+                })}
+              >
+                <option value="QuanTri">Quản Trị</option>
+                <option value="KhachHang">Khách Hàng</option>
+              </select>
+            </div>
           </div>
 
           <div className="col-6">
@@ -116,22 +128,7 @@ export default function ThemUser() {
                 <p className="alert alert-danger">Không được để trống</p>
               )}
             </div>
-            <div className="form-group">
-              <span className="mr-2">Mã Loại Người Dùng</span>
-              <select
-                name="maLoaiNguoiDung"
-                {...register("maLoaiNguoiDung", {
-                  required: true,
-                })}
-              >
-                <option value="QuanTri">Quản Trị</option>
-                <option value="KhachHang">Khách Hàng</option>
-              </select>
 
-              {errors?.maLoaiNguoiDung?.type === "required" && (
-                <p className="alert alert-danger">Không được để trống</p>
-              )}
-            </div>
             <div className="form-group">
               <span>Số Điện Thoại</span>
               <input

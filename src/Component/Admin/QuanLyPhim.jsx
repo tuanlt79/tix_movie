@@ -29,7 +29,7 @@ export default function QuanLyPhim() {
           <td>{moment(item.ngayKhoiChieu).format("ddd-mm-yyyy hh:mm A")}</td>
           <td>
             <TaoLichChieu />
-            {/* <button className="btn__edit">Sửa</button> */}
+
             <EditFilm />
             <button
               className="btn__del"

@@ -3,6 +3,13 @@
   .profile__user {
     padding-top: 100px;
     .profile__userInfo {
+      a {
+        color: $primary;
+      }
+      .nav-pills .nav-link.active,
+      .nav-pills .show > .nav-link {
+        background-color: $cRed;
+      }
       border-radius: 5px;
       background-image: linear-gradient(
         to bottom,
