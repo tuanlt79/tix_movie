@@ -85,30 +85,6 @@ export default function Header() {
                 Đăng Nhập
               </NavLink>
             )}
-
-            {/* {taiKhoan !== "" ? (
-              <span className="btnLogin ">
-                <NavLink to="/profile" className="header__user">
-                  <img className="imgLogin" alt="" />
-                  {taiKhoan}
-                </NavLink>
-                <button
-                  className="ml-2 btn__Logout"
-                  onClick={() => {
-                    dispatch({
-                      type: "DANG_XUAT",
-                    });
-                  }}
-                >
-                  Đăng Xuất
-                </button>
-              </span>
-            ) : (
-              <NavLink className="btnLogin" to="/login">
-                <img className="imgLogin" alt="" />
-                Đăng Nhập
-              </NavLink>
-            )} */}
           </div>
         </nav>
       </div>

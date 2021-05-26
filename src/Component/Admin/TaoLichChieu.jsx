@@ -17,7 +17,7 @@ export default function TaoLichChieu() {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(moment(data.ngayChieuGioChieu).format("DD/MM/YYYY"));
+    console.log(data);
     dispatch(taoLichChieuAction(data, accessToken));
   };
   return (
@@ -97,7 +97,12 @@ export default function TaoLichChieu() {
                           <DatePicker
                             onChange={(e) => field.onChange(e)}
                             selected={field.value}
-                            placeholderText="Vui lòng chọn"
+                            // selected={
+                            //   field.value
+                            //     ? moment(field.value).format("DD/MM/YYYY")
+                            //     : null
+                            // }
+                            placeholderText="Vui lòng chọn ngày"
                             dateFormat="dd/MM/yyyy"
                             isClearable
                           />

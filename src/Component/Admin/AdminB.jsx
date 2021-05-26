@@ -12,6 +12,9 @@ import { domain, maNhom } from "../../configs/setting";
 import QuanLyPhim from "./QuanLyPhim";
 import QuanLyUser from "./QuanLyUser";
 import ThemUser from "./ThemUser";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+
 export default function AdminB() {
   const dispatch = useDispatch();
   useEffect(() => {
