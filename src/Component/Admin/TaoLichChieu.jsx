@@ -9,19 +9,19 @@ import moment from "moment";
 export default function TaoLichChieu() {
   const { accessToken } = useSelector((state) => state.UserReducer);
   const dispatch = useDispatch();
-  const defaultValues = {
-    maPhim: "",
-    ngayChieuGioChieu: new Date(),
-    maRap: "",
-    giaVe: "",
-  };
+  // const defaultValues = {
+  //   maPhim: "",
+  //   ngayChieuGioChieu: "",
+  //   maRap: "",
+  //   giaVe: "",
+  // };
   const {
     register,
     handleSubmit,
     formState: { errors },
     control,
     watch,
-  } = useForm({ defaultValues });
+  } = useForm();
 
   const onSubmit = (data) => {
     console.log(data);
@@ -95,19 +95,19 @@ export default function TaoLichChieu() {
 
                     <div className="form-group">
                       <span className="mr-2">Ngày Chiếu</span>
-                      <Controller
+                      {/* <Controller
                         control={control}
                         name="ngayChieuGioChieu"
                         render={({ field }) => (
                           <DatePicker
-                            className="input"
                             placeholderText="Select date"
                             onChange={(e) => field.onChange(e)}
                             selected={field.value}
+                            dateFormat="dd/MM/yyyy"
                           />
                         )}
-                      />
-                      {/* <Controller
+                      /> */}
+                      <Controller
                         name="ngayChieuGioChieu"
                         control={control}
                         defaultValue={null}
@@ -115,17 +115,17 @@ export default function TaoLichChieu() {
                           <DatePicker
                             onChange={(e) => field.onChange(e)}
                             selected={field.value}
-                            // selected={
-                            //   field.value
-                            //     ? moment(field.value).format("DD/MM/YYYY")
-                            //     : null
-                            // }
+                            selected={
+                              field.value
+                                ? moment(field.value).format("DD/MM/YYYY")
+                                : null
+                            }
                             placeholderText="Vui lòng chọn ngày"
                             dateFormat="dd/MM/yyyy"
                             isClearable
                           />
                         )}
-                      /> */}
+                      />
                     </div>
                   </div>
                 </div>

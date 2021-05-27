@@ -15,7 +15,7 @@ export default function ThemUser() {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    console.log({ accessToken });
+    // console.log({ accessToken });
     dispatch(addUser(data, accessToken));
   };
 
