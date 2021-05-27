@@ -5,20 +5,27 @@ import { taoLichChieuAction } from "../../Action/PhimAction";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import moment from "moment";
+
 export default function TaoLichChieu() {
   const { accessToken } = useSelector((state) => state.UserReducer);
   const dispatch = useDispatch();
-
+  const defaultValues = {
+    maPhim: "",
+    ngayChieuGioChieu: new Date(),
+    maRap: "",
+    giaVe: "",
+  };
   const {
     register,
     handleSubmit,
     formState: { errors },
     control,
-  } = useForm();
+    watch,
+  } = useForm({ defaultValues });
 
   const onSubmit = (data) => {
     console.log(data);
-    dispatch(taoLichChieuAction(data, accessToken));
+    // dispatch(taoLichChieuAction(data, accessToken));
   };
   return (
     <div className="d-inline-block">
@@ -88,8 +95,19 @@ export default function TaoLichChieu() {
 
                     <div className="form-group">
                       <span className="mr-2">Ngày Chiếu</span>
-
                       <Controller
+                        control={control}
+                        name="ngayChieuGioChieu"
+                        render={({ field }) => (
+                          <DatePicker
+                            className="input"
+                            placeholderText="Select date"
+                            onChange={(e) => field.onChange(e)}
+                            selected={field.value}
+                          />
+                        )}
+                      />
+                      {/* <Controller
                         name="ngayChieuGioChieu"
                         control={control}
                         defaultValue={null}
@@ -107,7 +125,7 @@ export default function TaoLichChieu() {
                             isClearable
                           />
                         )}
-                      />
+                      /> */}
                     </div>
                   </div>
                 </div>
