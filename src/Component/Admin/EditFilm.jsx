@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
+import { maNhom } from "../../configs/setting";
 
 export default function EditFilm() {
   const { accessToken } = useSelector((state) => state.UserReducer);
@@ -149,7 +150,7 @@ export default function EditFilm() {
                       <span>Mã Nhóm</span>
                       <input
                         type="text"
-                        value={accessToken.maNhom}
+                        value={maNhom}
                         {...register("maNhom", {
                           required: true,
                         })}

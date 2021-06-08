@@ -9,12 +9,7 @@ import moment from "moment";
 export default function TaoLichChieu() {
   const { accessToken } = useSelector((state) => state.UserReducer);
   const dispatch = useDispatch();
-  // const defaultValues = {
-  //   maPhim: "",
-  //   ngayChieuGioChieu: "",
-  //   maRap: "",
-  //   giaVe: "",
-  // };
+
   const {
     register,
     handleSubmit,
@@ -24,8 +19,8 @@ export default function TaoLichChieu() {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
-    // dispatch(taoLichChieuAction(data, accessToken));
+    // console.log(data);
+    dispatch(taoLichChieuAction(data, accessToken));
   };
   return (
     <div className="d-inline-block">
@@ -95,37 +90,30 @@ export default function TaoLichChieu() {
 
                     <div className="form-group">
                       <span className="mr-2">Ngày Chiếu</span>
+                      <input
+                        type="text"
+                        placeholder="dd/MM/yyyy hh:mm:ss"
+                        {...register("ngayChieuGioChieu")}
+                      />
                       {/* <Controller
-                        control={control}
-                        name="ngayChieuGioChieu"
-                        render={({ field }) => (
-                          <DatePicker
-                            placeholderText="Select date"
-                            onChange={(e) => field.onChange(e)}
-                            selected={field.value}
-                            dateFormat="dd/MM/yyyy"
-                          />
-                        )}
-                      /> */}
-                      <Controller
                         name="ngayChieuGioChieu"
                         control={control}
                         defaultValue={null}
                         render={({ field }) => (
                           <DatePicker
                             onChange={(e) => field.onChange(e)}
-                            selected={field.value}
                             selected={
                               field.value
-                                ? moment(field.value).format("DD/MM/YYYY")
-                                : null
+                              // ? moment(field.value).format(
+                              //     "DD/MM/YYYY HH:mm:ss"
+                              //   )
+                              // : null
                             }
-                            placeholderText="Vui lòng chọn ngày"
-                            dateFormat="dd/MM/yyyy"
+                            dateFormat="dd/MM/yyyy hh:mm:ss"
                             isClearable
                           />
                         )}
-                      />
+                      /> */}
                     </div>
                   </div>
                 </div>
