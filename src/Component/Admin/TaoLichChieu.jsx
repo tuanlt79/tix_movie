@@ -15,7 +15,6 @@ export default function TaoLichChieu() {
     handleSubmit,
     formState: { errors },
     control,
-    watch,
   } = useForm();
 
   const onSubmit = (data) => {
@@ -92,7 +91,7 @@ export default function TaoLichChieu() {
                       <span className="mr-2">Ngày Chiếu</span>
                       <input
                         type="text"
-                        placeholder="dd/MM/yyyy hh:mm:ss"
+                        placeholder="dd/MM/yyyy hh:mm"
                         {...register("ngayChieuGioChieu")}
                       />
                       {/* <Controller
@@ -101,15 +100,13 @@ export default function TaoLichChieu() {
                         defaultValue={null}
                         render={({ field }) => (
                           <DatePicker
-                            onChange={(e) => field.onChange(e)}
-                            selected={
-                              field.value
-                              // ? moment(field.value).format(
-                              //     "DD/MM/YYYY HH:mm:ss"
-                              //   )
-                              // : null
-                            }
-                            dateFormat="dd/MM/yyyy hh:mm:ss"
+                            onChange={(e) => field.onChange(e.toDateString)}
+                            selected={field.value}
+                            dateFormat="dd/MM/yyyy HH:mm"
+                            showTimeSelect
+                            timeFormat="HH:mm"
+                            timeIntervals={15}
+                            timeCaption="time"
                             isClearable
                           />
                         )}

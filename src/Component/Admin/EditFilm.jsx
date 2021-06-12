@@ -1,7 +1,8 @@
+import axios from "axios";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-import { maNhom } from "../../configs/setting";
+import { domain, maNhom } from "../../configs/setting";
 
 export default function EditFilm() {
   const { accessToken } = useSelector((state) => state.UserReducer);
@@ -13,7 +14,30 @@ export default function EditFilm() {
   } = useForm();
 
   const onSubmit = (data) => {
+    // console.log(data);
+    var form_data = new FormData();
+    for (var key in data) {
+      if (key === "hinhAnh") {
+        form_data.append(key, data[key][0]);
+        // console.log(data[key]);
+      } else {
+        form_data.append(key, data[key]);
+      }
+    }
+    // console.log(form_data.get("hinhAnh"));
     console.log(data);
+    axios({
+      url: `${domain}/api/QuanLyPhim/CapNhatPhim`,
+      method: "POST",
+      data: form_data,
+      headers: { Authorization: "Bearer " + accessToken },
+    })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err.response.data);
+      });
   };
   return (
     <div className="d-inline-block">
