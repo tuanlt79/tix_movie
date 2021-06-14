@@ -2,7 +2,10 @@ import axios from "axios";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
+<<<<<<< HEAD
 import { editFilm } from "../../Action/PhimAction";
+=======
+>>>>>>> 5dd11440325cf000c26fe2610fe853ce0a5dfc7f
 import { domain, maNhom } from "../../configs/setting";
 
 export default function EditFilm() {
@@ -25,6 +28,7 @@ export default function EditFilm() {
         form_data.append(key, data[key]);
       }
     }
+<<<<<<< HEAD
     // dispatch(editFilm(data,accessToken))
     axios({
       url: `${domain}/api/QuanLyPhim/CapNhatPhimUpload`,
@@ -41,6 +45,21 @@ export default function EditFilm() {
       })
       .catch((err) => {
         alert(err.response.data);
+=======
+    // console.log(form_data.get("hinhAnh"));
+    console.log(data);
+    axios({
+      url: `${domain}/api/QuanLyPhim/CapNhatPhim`,
+      method: "POST",
+      data: form_data,
+      headers: { Authorization: "Bearer " + accessToken },
+    })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err.response.data);
+>>>>>>> 5dd11440325cf000c26fe2610fe853ce0a5dfc7f
       });
   };
   return (

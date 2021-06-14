@@ -44,6 +44,7 @@ export default function AdminB() {
       data: form_data,
     })
       .then((res) => {
+        alert("Thêm Phim Thành Công");
         console.log(res);
       })
       .catch((err) => {
