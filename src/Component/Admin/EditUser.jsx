@@ -19,8 +19,8 @@ export default function EditUser() {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
-    // dispatch(editUser(data, accessToken));
+    // console.log(data);
+    dispatch(editUser(data, accessToken));
   };
   return (
     <div className="d-inline-block">

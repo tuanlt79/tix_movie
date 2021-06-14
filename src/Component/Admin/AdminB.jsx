@@ -32,7 +32,7 @@ export default function AdminB() {
     for (var key in data) {
       if (key === "hinhAnh") {
         form_data.append(key, data[key][0]);
-        console.log(data[key]);
+        // console.log(data[key]);
       } else {
         form_data.append(key, data[key]);
       }
@@ -61,7 +61,7 @@ export default function AdminB() {
               className="col-2 bg__admin"
               style={{ backgroundImage: `url(${bg2})` }}
             >
-              <div className="position-fixed">
+              <div className="position-fixed plist__admin">
                 <NavLink to="/" className="admin__logo text-center">
                   <img src={logo} alt="" width="30%" className="mt-3" />
                 </NavLink>
@@ -205,7 +205,6 @@ export default function AdminB() {
                         </div>
                       </div>
                       <div className="col-6">
-                        {" "}
                         <div className="form-group">
                           <span>Hình Ảnh</span>
                           <input

@@ -104,31 +104,7 @@ export const layThongTinPhongVeAction = (maLichChieu) => {
     }, 700);
   };
 };
-// export const addFilm = (form_data) => {
-//   console.log(form_data);
-//   return async (dispatch) => {
-//     dispatch({ type: "openLoading" });
-//     setTimeout(async () => {
-//       let promise = await axios({
-//         url: "http://movie0706.cybersoft.edu.vn/api/quanlyphim/ThemPhimUploadHinh",
-//         method: "POST",
-//         data?: form_data,
-//       })
-//         .then((res) => {
-//           console.log(res);
-//         })
-//         .catch((err) => {
-//           console.log(err.response.data);
-//         });
-//       if (promise.status === 200) {
-//         alert("Thanh Cong");
-//       }
-//       dispatch({
-//         type: "closeLoading",
-//       });
-//     }, 700);
-//   };
-// };
+
 
 export const deleteFilm = (maPhim, token) => {
   return async (dispatch) => {
@@ -168,3 +144,18 @@ export const taoLichChieuAction = (value, token) => {
     }
   };
 };
+// export const editFilm = (form_data, token) => {
+//   console.log(form_data)
+//   return async (dispatch) => {
+//     try {
+//       let result = await axios({
+//         url: `${domain}/api/QuanLyPhim/CapNhatPhimUpload`,
+//         method: "POST",
+//         data: form_data,
+//         headers: { Authorization: "Bearer " + token },
+//       })
+//      } catch (err) {
+//       alert(err.response?.data)
+//     }
+//   }
+// };
