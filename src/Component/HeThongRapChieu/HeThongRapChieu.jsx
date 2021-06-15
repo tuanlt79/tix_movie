@@ -30,7 +30,7 @@ export default function HeThongRapChieu() {
             </div>
           </div>
           <div className="col-11 col-lg-11 col-md-10">
-            <div class="tab-content" id="v-pills-tabContent">
+            <div className="tab-content" id="v-pills-tabContent">
               {chiTietCumRap?.map((danhSachRap, index) => {
                 let classActive = index === 0 ? "active" : "";
                 return (

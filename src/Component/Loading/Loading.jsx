@@ -1,10 +1,7 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-// import webLogo from "../../Assets/img/web-logo.png";
+import { useSelector } from "react-redux";
 import webLogo2 from "../../Assets/img/Bean Eater-1s-200px.gif";
-
 export default function Loading() {
-  const dispatch = useDispatch();
   const isloading = useSelector((state) => state.LoadingReducer.loading);
   let renderLoading = () => {
     if (isloading) {
@@ -34,7 +31,6 @@ export default function Loading() {
           </div>
         </div>
       );
-      return "";
     }
   };
   return <div>{renderLoading()}</div>;

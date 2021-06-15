@@ -82,7 +82,7 @@ export default function Header() {
             ) : (
               <NavLink className="btnLogin" to="/login">
                 <img className="imgLogin" alt="" />
-                Đăng Nhập
+                <span className="span__Login">Đăng Nhập</span>
               </NavLink>
             )}
           </div>

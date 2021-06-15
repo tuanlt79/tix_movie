@@ -28,7 +28,13 @@ header {
           border-radius: 50%;
           margin-right: 10px;
         }
-
+        .span__Login {
+          color: $cGray;
+          size: $body1;
+          &:hover {
+            color: $cRed;
+          }
+        }
         .header__user {
           color: $cGray;
           font-size: $body1;
