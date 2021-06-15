@@ -8,7 +8,7 @@ import { Redirect } from "react-router";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { NavLink } from "react-router-dom";
-import { domain, maNhom } from "../../configs/setting";
+import { domain, maNhom, taiKhoan } from "../../configs/setting";
 import QuanLyPhim from "./QuanLyPhim";
 import QuanLyUser from "./QuanLyUser";
 import ThemUser from "./ThemUser";
@@ -51,6 +51,9 @@ export default function AdminB() {
         console.log(err.response.data);
       });
   };
+  if (!localStorage.getItem(taiKhoan)) {
+    return <Redirect to="/login" />;
+  }
   let tokenLocal = JSON.parse(localStorage.getItem("taiKhoan"));
 
   if (tokenLocal.maLoaiNguoiDung === "QuanTri") {

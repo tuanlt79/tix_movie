@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { taoLichChieuAction } from "../../Action/PhimAction";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import moment from "moment";
 
 export default function TaoLichChieu() {
   const { accessToken } = useSelector((state) => state.UserReducer);
@@ -18,8 +17,8 @@ export default function TaoLichChieu() {
   } = useForm();
 
   const onSubmit = (data) => {
-    // console.log(data);
-    dispatch(taoLichChieuAction(data, accessToken));
+    console.log(data);
+    // dispatch(taoLichChieuAction(data, accessToken));
   };
   return (
     <div className="d-inline-block">
@@ -100,7 +99,7 @@ export default function TaoLichChieu() {
                         defaultValue={null}
                         render={({ field }) => (
                           <DatePicker
-                            onChange={(e) => field.onChange(e.toDateString)}
+                            onChange={(e) => field.onChange(e)}
                             selected={field.value}
                             dateFormat="dd/MM/yyyy HH:mm"
                             showTimeSelect
