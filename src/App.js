@@ -12,6 +12,7 @@ import Profile from "./Component/Profile/Profile";
 import { Provider } from "react-redux";
 import AdminB from "./Component/Admin/AdminB";
 import { store } from "./Redux/configStore";
+import EditUser from "./Component/Admin/EditUser";
 export const history = createBrowserHistory();
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
             <Route exact path="/register" component={Register} />
             <HeaderTemplate exact path="/profile" Component={Profile} />
             <Route exact path="/admin" component={AdminB} />
+            {/* <Route exact path="/admin/edituser/:id" component={EditUser} /> */}
             <Route exact path="/" component={Home} />
           </Switch>
         </div>

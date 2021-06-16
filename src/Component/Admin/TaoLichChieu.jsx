@@ -81,6 +81,7 @@ export default function TaoLichChieu() {
                       <span>Mã Rạp</span>
                       <input
                         type="text"
+                        placeholder="000"
                         {...register("maRap")}
                         className="form-control"
                       />
