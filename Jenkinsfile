@@ -28,8 +28,9 @@ pipeline {
         DOCKER_TAG="${GIT_BRANCH.tokenize('/').pop()}-${GIT_COMMIT.substring(0,7)}"
       }
       steps {
-       withCredentials([usernamePassword(credentialsId: 'docker-hub', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
-            sh 'echo $DOCKER_PASSWORD | docker login --username $DOCKER_USERNAME --password-stdin'
+          
+       withCredentials([usernamePassword(credentialsId: 'docker-hub', usernameVariable: 'DOCKER_REGISTRY_PWD', passwordVariable: 'DOCKER_REGISTRY_USER')]) {
+            sh 'echo $DOCKER_REGISTRY_PWD | docker login --username $DOCKER_REGISTRY_USER --password-stdin'
         }
 
         sh "docker build -t ${DOCKER_IMAGE}:${DOCKER_TAG} . "
