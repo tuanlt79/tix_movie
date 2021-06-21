@@ -33,11 +33,10 @@ export default function EditFilm() {
       headers: {
         Authorization: "Bearer " + accessToken,
       },
-      
     })
       .then((res) => {
         // console.log(res);
-        alert('Thay Đổi Thành Công')
+        alert("Thay Đổi Thành Công");
       })
       .catch((err) => {
         alert(err.response.data);
