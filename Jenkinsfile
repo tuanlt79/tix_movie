@@ -3,8 +3,8 @@ pipeline {
   agent none
 
   environment {
-    DOCKER_IMAGE = "tuanlt79/react-jenkins",
-     CI = 'true'
+    DOCKER_IMAGE = "tuanlt79/react-jenkins"
+    CI = 'true'
   }
 
   stages {
@@ -17,7 +17,8 @@ pipeline {
       }
       steps {
         sh "npm install"
-        sh "./jenkins/scripts/test.sh"
+         sh "npm test"
+        // sh "./jenkins/scripts/test.sh"
         
       }
     }
