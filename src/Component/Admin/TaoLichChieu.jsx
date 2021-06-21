@@ -81,6 +81,7 @@ export default function TaoLichChieu() {
                       <span>Mã Rạp</span>
                       <input
                         type="text"
+                        placeholder="000"
                         {...register("maRap")}
                         className="form-control"
                       />
@@ -88,12 +89,12 @@ export default function TaoLichChieu() {
 
                     <div className="form-group">
                       <span className="mr-2">Ngày Chiếu</span>
-                      <input
+                      {/* <input
                         type="text"
                         placeholder="dd/MM/yyyy hh:mm"
                         {...register("ngayChieuGioChieu")}
-                      />
-                      {/* <Controller
+                      /> */}
+                      <Controller
                         name="ngayChieuGioChieu"
                         control={control}
                         defaultValue={null}
@@ -109,7 +110,7 @@ export default function TaoLichChieu() {
                             isClearable
                           />
                         )}
-                      /> */}
+                      />
                     </div>
                   </div>
                 </div>

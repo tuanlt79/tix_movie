@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import { maNhom } from "../../configs/setting";
@@ -6,10 +6,16 @@ import { editUser } from "../../Action/UserAction";
 
 export default function EditUser() {
   const { accessToken } = useSelector((state) => state.UserReducer);
+
   const dispatch = useDispatch();
   const thongTinAllUser = useSelector(
     (state) => state.UserReducer.thongTinAllUser
   );
+  // let { id } = props.match.params;
+  // console.log(id);
+  // useEffect(() => {
+  //   dispatch({ type: "closeLoading" });
+  // }, []);
   // console.log({ thongTinAllUser });
   // console.log(thongTinAllUser?.map((item, index) => item.taiKhoan));
   const {
@@ -127,6 +133,24 @@ export default function EditUser() {
                         <p className="alert alert-danger">Email không hợp lệ</p>
                       )}
                     </div>
+                    <div className="form-group">
+                      <span className="mr-2">Mã Loại Người Dùng</span>
+                      <select
+                        name="maLoaiNguoiDung"
+                        {...register("maLoaiNguoiDung", {
+                          required: true,
+                        })}
+                      >
+                        <option value="QuanTri">Quản Trị</option>
+                        <option value="KhachHang">Khách Hàng</option>
+                      </select>
+
+                      {errors?.maLoaiNguoiDung?.type === "required" && (
+                        <p className="alert alert-danger">
+                          Không được để trống
+                        </p>
+                      )}
+                    </div>
                   </div>
 
                   <div className="col-6">
@@ -169,24 +193,7 @@ export default function EditUser() {
                         </p>
                       )}
                     </div>
-                    <div className="form-group">
-                      <span className="mr-2">Mã Loại Người Dùng</span>
-                      <select
-                        name="maLoaiNguoiDung"
-                        {...register("maLoaiNguoiDung", {
-                          required: true,
-                        })}
-                      >
-                        <option value="QuanTri">Quản Trị</option>
-                        <option value="KhachHang">Khách Hàng</option>
-                      </select>
 
-                      {errors?.maLoaiNguoiDung?.type === "required" && (
-                        <p className="alert alert-danger">
-                          Không được để trống
-                        </p>
-                      )}
-                    </div>
                     <div className="form-group">
                       <span>Số Điện Thoại</span>
                       <input

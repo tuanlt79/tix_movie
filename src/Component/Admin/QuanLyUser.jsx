@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Fragment } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteUser, getInfoAllUser } from "../../Action/UserAction";
-
+import { NavLink } from "react-router-dom";
 import EditUser from "./EditUser";
 
 export default function QuanLyUser() {
@@ -26,6 +26,14 @@ export default function QuanLyUser() {
           <td>{item.matKhau}</td>
           <td>{item.maLoaiNguoiDung}</td>
           <td>
+            {/* <NavLink
+              className="btn__edit"
+              data-toggle="modal"
+              data-target="#exampleModal"
+              to={`/edituser/${item.taiKhoan}`}
+            >
+              Sửa
+            </NavLink> */}
             <EditUser />
             <button
               className="btn__del"

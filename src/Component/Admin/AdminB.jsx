@@ -133,7 +133,7 @@ export default function AdminB() {
                   <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="row">
                       <div className="col-6">
-                        <div className="form-group">
+                        {/* <div className="form-group">
                           <span>Mã Phim</span>
                           <input
                             type="text"
@@ -158,7 +158,7 @@ export default function AdminB() {
                           {errors?.maPhim?.type === "pattern" && (
                             <p className="alert alert-danger">Nhập số</p>
                           )}
-                        </div>
+                        </div> */}
                         <div className="form-group">
                           <span>Tên Phim</span>
                           <input
@@ -207,6 +207,22 @@ export default function AdminB() {
                             </p>
                           )}
                         </div>
+                        <div className="form-group">
+                          <span>Ngày Khởi Chiếu</span>
+                          <input
+                            type="text"
+                            placeholder="dd-mm-yyyy"
+                            {...register("ngayKhoiChieu", {
+                              required: true,
+                            })}
+                            className="form-control"
+                          />
+                          {errors?.ngayKhoiChieu?.type === "required" && (
+                            <p className="alert alert-danger">
+                              Không được để trống
+                            </p>
+                          )}
+                        </div>
                       </div>
                       <div className="col-6">
                         <div className="form-group">
@@ -240,22 +256,7 @@ export default function AdminB() {
                             </p>
                           )}
                         </div>
-                        <div className="form-group">
-                          <span>Ngày Khởi Chiếu</span>
-                          <input
-                            type="text"
-                            placeholder="dd-mm-yyyy"
-                            {...register("ngayKhoiChieu", {
-                              required: true,
-                            })}
-                            className="form-control"
-                          />
-                          {errors?.ngayKhoiChieu?.type === "required" && (
-                            <p className="alert alert-danger">
-                              Không được để trống
-                            </p>
-                          )}
-                        </div>
+
                         <div className="form-group">
                           <span>Đánh Giá</span>
                           <input
