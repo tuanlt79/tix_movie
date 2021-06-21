@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import bg2 from "../../Assets/img/bg2.jpg";
 import logo from "../../Assets/img/web-logo.png";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch } from "react-redux";
 import { Redirect } from "react-router";
 import { useForm } from "react-hook-form";
@@ -27,17 +25,14 @@ export default function AdminB() {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    // console.log(data);
     var form_data = new FormData();
     for (var key in data) {
       if (key === "hinhAnh") {
         form_data.append(key, data[key][0]);
-        // console.log(data[key]);
       } else {
         form_data.append(key, data[key]);
       }
     }
-    // console.log(form_data.get("hinhAnh"));
     axios({
       url: `${domain}/api/quanlyphim/ThemPhimUploadHinh`,
       method: "POST",
