@@ -22,7 +22,7 @@ pipeline {
       }
     }
 
-    stage("Build") {
+    stage("build") {
       agent { node {label 'master'}}
       environment {
         DOCKER_TAG="${GIT_BRANCH.tokenize('/').pop()}-${GIT_COMMIT.substring(0,7)}"
@@ -43,10 +43,11 @@ pipeline {
       }
     }
     stage("Deploy"){
-        withCredentials([sshKey(credentialsId: 'ssh-key', sshKeyVariable: 'SSH_KEY')]) {
-            sh "ssh -i $SSH_KEY tuan_lt230295@35.223.47.53 './deploy.sh' "
-            
+       steps{
+          withCredentials([sshKey(credentialsId: 'ssh-key', sshKeyVariable: 'SSH_KEY')]) {
+            sh "ssh -i $SSH_KEY tuan_lt230295@35.223.47.53 './deploy.sh'"
         }
+       }
     }
   }
 
