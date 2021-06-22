@@ -36,14 +36,13 @@ export default function Profile() {
     onSubmit: (values) => {
       values.hoTen = `${getUser.hoTen}`;
       values.maNhom = "GP06";
-      //   values.maLoaiNguoiDung = "KhachHang";
+
       values.taiKhoan = `${getUser.taiKhoan}`;
       values.email = `${getUser.email}`;
       dispatch(editUser(values));
       console.log(values);
     },
   });
-  //   console.log({ thongTinUser });
 
   return (
     <section className="profile" style={{ backgroundImage: `url(${bg2})` }}>
@@ -206,9 +205,7 @@ export default function Profile() {
                   </div>
                 </div>
 
-                <div className="text-center">
-                  {/* <button type="submit">Cập Nhật </button> */}
-                </div>
+                <div className="text-center"></div>
               </form>
             </div>
           </div>

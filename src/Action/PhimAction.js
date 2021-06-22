@@ -105,7 +105,6 @@ export const layThongTinPhongVeAction = (maLichChieu) => {
   };
 };
 
-
 export const deleteFilm = (maPhim, token) => {
   return async (dispatch) => {
     try {
@@ -144,18 +143,3 @@ export const taoLichChieuAction = (value, token) => {
     }
   };
 };
-// export const editFilm = (form_data, token) => {
-//   console.log(form_data)
-//   return async (dispatch) => {
-//     try {
-//       let result = await axios({
-//         url: `${domain}/api/QuanLyPhim/CapNhatPhimUpload`,
-//         method: "POST",
-//         data: form_data,
-//         headers: { Authorization: "Bearer " + token },
-//       })
-//      } catch (err) {
-//       alert(err.response?.data)
-//     }
-//   }
-// };
