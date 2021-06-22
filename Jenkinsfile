@@ -40,8 +40,6 @@ pipeline {
         // //clean to save disk
         sh "docker image rm ${DOCKER_IMAGE}:${DOCKER_TAG}"
         sh "docker image rm ${DOCKER_IMAGE}:latest"
-         withCredentials([sshKey(credentialsId: 'ssh-key', sshKeyVariable: 'SSH_KEY')]) {
-            sh "ssh -oStrictHostKeyChecking=no $SSH_KEY tuan_lt230295@35.223.47.53 './deploy.sh'"
       }
     }
     // stage("Deploy"){
