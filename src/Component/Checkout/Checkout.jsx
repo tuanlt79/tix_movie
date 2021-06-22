@@ -19,7 +19,6 @@ export default function Checkout(props) {
     let { id } = props.match.params;
     dispatch(layThongTinPhongVeAction(id));
   }, []);
-  // console.log({ danhSachGheDangDat });
   let renderGhe = () => {
     return thongTinPhongVe.danhSachGhe?.map((ghe, index) => {
       let indexGheDD = danhSachGheDangDat.findIndex(
