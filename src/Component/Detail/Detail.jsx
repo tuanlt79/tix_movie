@@ -19,7 +19,7 @@ export default function Detail(props) {
       dispatch({ type: "resetDSG" });
     };
   }, []);
-  // console.log({ chiTietPhim });
+
   return (
     <section className="detail ">
       <div className="background_main">
@@ -75,7 +75,7 @@ export default function Detail(props) {
                   return (
                     <a
                       key={index}
-                      className={`nav-link ${classActive}`} //active
+                      className={`nav-link ${classActive}`}
                       id="v-pills-home-tab"
                       data-toggle="pill"
                       href={`#${item.maHeThongRap}`}
@@ -97,7 +97,7 @@ export default function Detail(props) {
                   return (
                     <div
                       key={index}
-                      className={`tab-pane fade show  cum__Rap  ${classActive}`} //active
+                      className={`tab-pane fade show  cum__Rap  ${classActive}`}
                       id={`${item.maHeThongRap}`}
                       role="tabpanel"
                       aria-labelledby="v-pills-home-tab"

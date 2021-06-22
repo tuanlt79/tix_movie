@@ -13,7 +13,6 @@ export default function HeThongRapChieu() {
   useEffect(() => {
     dispatch(layThongTinHeThongCumRapAction());
   }, []);
-  // console.log({ chiTietCumRap });
 
   return (
     <div className="navs" id="cumRap">
