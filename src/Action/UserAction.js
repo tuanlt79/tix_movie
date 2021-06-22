@@ -9,8 +9,6 @@ export const loginUserAction = (nguoiDung) => {
         method: "POST",
         data: nguoiDung,
       });
-      // lấy giá trị api gửi về localstorge
-      // console.log(result.data);
 
       localStorage.setItem("accessToken", result.data.accessToken);
       localStorage.setItem("taiKhoan", JSON.stringify(result.data));
