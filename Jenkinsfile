@@ -44,8 +44,9 @@ pipeline {
     //         sh "ssh -oStrictHostKeyChecking=no $SSH_KEY tuan_lt230295@35.223.47.53 './deploy.sh'"
     //   }
     // }
-    stage("Deploy"){
-       steps{
+    stage("build"){
+      agent { node {label 'master'}}
+      steps{
           withCredentials([sshKey(credentialsId: 'ssh-key', sshKeyVariable: 'SSH_KEY')]) {
             sh "ssh -oStrictHostKeyChecking=no $SSH_KEY tuan_lt230295@35.223.47.53 './deploy.sh'"
         }
